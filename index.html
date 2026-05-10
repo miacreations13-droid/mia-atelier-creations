@@ -1,32 +1,619 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mia Atelier Créations</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mia Atelier Créations — Cadeaux Personnalisés Haut de Gamme</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-logo">Mia Atelier <span>Créations</span></div>
-        <div class="nav-links">
-            <a href="#categories">Boutique</a>
-            <a href="#featured">Collection</a>
-            <a href="#nouveautes">Nouveautés</a>
-            <a href="#contact">Contact</a>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#accueil" class="nav-logo">Mia <span>Atelier</span></a>
+      <button class="nav-toggle" id="navToggle">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#boutique">Boutique</a></li>
+        <li><a href="#apropos">À Propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="accueil" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-sub">✦ Créations Personnalisées Haut de Gamme</p>
+      <h1 class="hero-title">Mia Atelier<br /><em>Créations</em></h1>
+      <p class="hero-desc">Cadeaux personnalisés pour chaque événement — conçus avec amour, livrés avec élégance.</p>
+      <a href="#boutique" class="btn-primary">Découvrir la Boutique</a>
+    </div>
+    <div class="hero-deco">
+      <span class="deco-circle c1"></span>
+      <span class="deco-circle c2"></span>
+      <span class="deco-line"></span>
+    </div>
+    <div class="hero-signature">Instagram: @Mia_creations</div>
+  </section>
+
+  <!-- BOUTIQUE -->
+  <section id="boutique" class="boutique">
+    <div class="section-header">
+      <p class="section-label">✦ Notre Collection</p>
+      <h2 class="section-title">La Boutique</h2>
+      <p class="section-desc">Chaque création est unique, pensée pour vous et pour vos proches.</p>
+    </div>
+
+        <!-- Filtres -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="mariage">💍 Mariage</button>
+      <button class="filter-btn" data-filter="naissance">👶 Naissance & Baptême</button>
+      <button class="filter-btn" data-filter="anniversaire">🎂 Anniversaire</button>
+      <button class="filter-btn" data-filter="fiancailles">💑 Fiançailles</button>
+      <button class="filter-btn" data-filter="beaute">💆 Beauté & Bien-être</button>
+      <button class="filter-btn" data-filter="general">🌸 Tous Événements</button>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- MARIAGE -->
+      <div class="product-card featured" data-cat="mariage">
+        <div class="product-badge">✦ Mariage</div>
+        <div class="product-img"><div class="product-emoji">🍬</div></div>
+        <div class="product-info">
+          <h3>Dragées & Contenants</h3>
+          <p>Dragées élégantes et contenants personnalisés aux couleurs de votre mariage.</p>
+          <span class="product-tag">💍 Mariage</span>
         </div>
-        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
-    </nav>
-    <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p class="hero-sub">✦ Créations Personnalisées Haut de Gamme</p>
-            <h1>Mia Atelier<br><em>Créations</em></h1>
-            <p class="hero-desc">Cadeaux personnalisés pour chaque événement — conçus avec amour, livrés avec élégance.</p>
-            <a href="#categories" class="btn">Découvrir la Boutique</a>
+      </div>
+
+      <div class="product-card" data-cat="mariage">
+        <div class="product-img"><div class="product-emoji">💌</div></div>
+        <div class="product-info">
+          <h3>Faire-Part Mariage</h3>
+          <p>Faire-part uniques et raffinés pour annoncer votre grand jour.</p>
+          <span class="product-tag">💍 Mariage</span>
         </div>
-    </header>
-    <section class="slider">
-        <div class="slides">
-            <div class="slide"><img src="images/slider1.jpg" alt="Création 1" /
+      </div>
+
+      <div class="product-card" data-cat="mariage">
+        <div class="product-img"><div class="product-emoji">🎗️</div></div>
+        <div class="product-info">
+          <h3>Rubans & Étiquettes</h3>
+          <p>Rubans satin et étiquettes personnalisés aux prénoms des mariés.</p>
+          <span class="product-tag">💍 Mariage</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="mariage">
+        <div class="product-img"><div class="product-emoji">🌿</div></div>
+        <div class="product-info">
+          <h3>Kit Henné</h3>
+          <p>Kit henné complet pour la soirée traditionnelle, personnalisé et élégant.</p>
+          <span class="product-tag">💍 Mariage</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="mariage">
+        <div class="product-img"><div class="product-emoji">💍</div></div>
+        <div class="product-info">
+          <h3>Plateaux Alliances</h3>
+          <p>Plateaux décoratifs luxueux pour la cérémonie des alliances.</p>
+          <span class="product-tag">💍 Mariage</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="mariage">
+        <div class="product-img"><div class="product-emoji">🪞</div></div>
+        <div class="product-info">
+          <h3>Portes Alliances Personnalisés</h3>
+          <p>Portes alliances uniques gravés aux prénoms et à la date du mariage.</p>
+          <span class="product-tag">💍 Mariage</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="mariage">
+        <div class="product-img"><div class="product-emoji">🕯️</div></div>
+        <div class="product-info">
+          <h3>Bougies Parfumées</h3>
+          <p>Bougies parfumées personnalisées avec les prénoms et la date du mariage.</p>
+          <span class="product-tag">💍 Mariage</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="mariage">
+        <div class="product-img"><div class="product-emoji">🍫</div></div>
+        <div class="product-info">
+          <h3>Chocolats</h3>
+          <p>Ferrero Rocher · Raffaello · M&Ms · Kinder · Lindor · Petits cœurs</p>
+          <span class="product-tag">💍 Mariage</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="mariage">
+        <div class="product-img"><div class="product-emoji">📦</div></div>
+        <div class="product-info">
+          <h3>Boîtes Cadeaux Mariage</h3>
+          <p>Boîtes luxueuses personnalisées pour offrir vos cadeaux de mariage.</p>
+          <span class="product-tag">💍 Mariage</span>
+        </div>
+      </div>
+
+      <!-- NAISSANCE & BAPTÊME -->
+      <div class="product-card featured" data-cat="naissance">
+        <div class="product-badge">✦ Naissance</div>
+        <div class="product-img"><div class="product-emoji">🍬</div></div>
+        <div class="product-info">
+          <h3>Dragées & Contenants</h3>
+          <p>Dragées tendres et contenants personnalisés pour célébrer l'arrivée de bébé.</p>
+          <span class="product-tag">👶 Naissance</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="naissance">
+        <div class="product-img"><div class="product-emoji">💌</div></div>
+        <div class="product-info">
+          <h3>Faire-Part Naissance</h3>
+          <p>Faire-part doux et poétiques pour annoncer l'arrivée de votre bébé.</p>
+          <span class="product-tag">👶 Naissance</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="naissance">
+        <div class="product-img"><div class="product-emoji">🏷️</div></div>
+        <div class="product-info">
+          <h3>Étiquettes Personnalisées</h3>
+          <p>Étiquettes au prénom de bébé pour personnaliser tous vos cadeaux.</p>
+          <span class="product-tag">👶 Naissance</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="naissance">
+        <div class="product-img"><div class="product-emoji">🎁</div></div>
+        <div class="product-info">
+          <h3>Coffret Bébé</h3>
+          <p>Coffret cadeau complet et personnalisé pour accueillir le nouveau-né.</p>
+          <span class="product-tag">👶 Naissance</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="naissance">
+        <div class="product-img"><div class="product-emoji">📦</div></div>
+        <div class="product-info">
+          <h3>Boîtes Cadeaux Pastels</h3>
+          <p>Boîtes délicates aux tons pastels, personnalisées pour la naissance.</p>
+          <span class="product-tag">👶 Naissance</span>
+        </div>
+      </div>
+
+      <!-- ANNIVERSAIRE -->
+      <div class="product-card featured" data-cat="anniversaire">
+        <div class="product-badge">✦ Anniversaire</div>
+        <div class="product-img"><div class="product-emoji">🎂</div></div>
+        <div class="product-info">
+          <h3>Boîtes à Gâteaux</h3>
+          <p>Boîtes élégantes personnalisées pour vos pâtisseries et douceurs.</p>
+          <span class="product-tag">🎂 Anniversaire</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="anniversaire">
+        <div class="product-img"><div class="product-emoji">🍫</div></div>
+        <div class="product-info">
+          <h3>Chocolats & Gourmandises</h3>
+          <p>Ferrero Rocher · Raffaello · M&Ms · Kinder · Lindor · Petits cœurs</p>
+          <span class="product-tag">🎂 Anniversaire</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="anniversaire">
+        <div class="product-img"><div class="product-emoji">🎁</div></div>
+        <div class="product-info">
+          <h3>Coffret Anniversaire</h3>
+          <p>Coffret cadeau sur mesure pour célébrer chaque anniversaire avec élégance.</p>
+          <span class="product-tag">🎂 Anniversaire</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="anniversaire">
+        <div class="product-img"><div class="product-emoji">🎗️</div></div>
+        <div class="product-info">
+          <h3>Étiquettes & Rubans</h3>
+          <p>Étiquettes et rubans personnalisés pour sublimer vos cadeaux d'anniversaire.</p>
+          <span class="product-tag">🎂 Anniversaire</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="anniversaire">
+        <div class="product-img"><div class="product-emoji">🕯️</div></div>
+        <div class="product-info">
+          <h3>Bougies</h3>
+          <p>Bougies parfumées personnalisées pour créer une ambiance unique.</p>
+          <span class="product-tag">🎂 Anniversaire</span>
+        </div>
+      </div>
+
+      <!-- FIANÇAILLES -->
+      <div class="product-card featured" data-cat="fiancailles">
+        <div class="product-badge">✦ Fiançailles</div>
+        <div class="product-img"><div class="product-emoji">💝</div></div>
+        <div class="product-info">
+          <h3>Coffret Romantique</h3>
+          <p>Coffret cadeau romantique et personnalisé pour célébrer les fiançailles.</p>
+          <span class="product-tag">💑 Fiançailles</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="fiancailles">
+        <div class="product-img"><div class="product-emoji">🍫</div></div>
+        <div class="product-info">
+          <h3>Chocolats</h3>
+          <p>Ferrero Rocher · Raffaello · Lindor · Petits cœurs au chocolat</p>
+          <span class="product-tag">💑 Fiançailles</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="fiancailles">
+        <div class="product-img"><div class="product-emoji">🕯️</div></div>
+        <div class="product-info">
+          <h3>Bougies Parfumées</h3>
+          <p>Bougies romantiques parfumées, personnalisées pour les futurs mariés.</p>
+          <span class="product-tag">💑 Fiançailles</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="fiancailles">
+        <div class="product-img"><div class="product-emoji">📦</div></div>
+        <div class="product-info">
+          <h3>Boîtes Cadeaux</h3>
+          <p>Boîtes élégantes personnalisées pour vos cadeaux de fiançailles.</p>
+          <span class="product-tag">💑 Fiançailles</span>
+        </div>
+      </div>
+
+      <!-- BEAUTÉ & BIEN-ÊTRE -->
+      <div class="product-card featured" data-cat="beaute">
+        <div class="product-badge">✦ Beauté</div>
+        <div class="product-img"><div class="product-emoji">💄</div></div>
+        <div class="product-info">
+          <h3>Maquillage</h3>
+          <p>Sélection de produits beauté pour compléter vos coffrets cadeaux.</p>
+          <span class="product-tag">💆 Beauté</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beaute">
+        <div class="product-img"><div class="product-emoji">🌸</div></div>
+        <div class="product-info">
+          <h3>Brumes Parfumées</h3>
+          <p>Brumes délicates et enveloppantes, idéales comme cadeaux raffinés.</p>
+          <span class="product-tag">💆 Beauté</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beaute">
+        <div class="product-img"><div class="product-emoji">✨</div></div>
+        <div class="product-info">
+          <h3>Kit Beauté</h3>
+          <p>Kit beauté complet pour prendre soin de soi avec élégance.</p>
+          <span class="product-tag">💆 Beauté</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beaute">
+        <div class="product-img"><div class="product-emoji">🕯️</div></div>
+        <div class="product-info">
+          <h3>Bougies Parfumées</h3>
+          <p>Bougies d'ambiance parfumées pour créer un moment de bien-être.</p>
+          <span class="product-tag">💆 Beauté</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beaute">
+        <div class="product-img"><div class="product-emoji">👜</div></div>
+        <div class="product-info">
+          <h3>Trousses Personnalisées</h3>
+          <p>Trousses élégantes personnalisées à votre prénom ou message.</p>
+          <span class="product-tag">💆 Beauté</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beaute">
+        <div class="product-img"><div class="product-emoji">🪞</div></div>
+        <div class="product-info">
+          <h3>Miroirs</h3>
+          <p>Miroirs de poche personnalisés, parfaits comme cadeaux raffinés.</p>
+          <span class="product-tag">💆 Beauté</span>
+        </div>
+      </div>
+
+      <!-- TOUS ÉVÉNEMENTS -->
+      <div class="product-card featured" data-cat="general">
+        <div class="product-badge">✦ Universel</div>
+        <div class="product-img"><div class="product-emoji">🔑</div></div>
+        <div class="product-info">
+          <h3>Porte-Clés Personnalisés</h3>
+          <p>Porte-clés uniques personnalisés avec prénom ou message, pour tous les événements.</p>
+          <span class="product-tag">🌸 Tous Événements</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="general">
+        <div class="product-img"><div class="product-emoji">🏷️</div></div>
+        <div class="product-info">
+          <h3>Étiquettes Personnalisées</h3>
+          <p>Étiquettes sur mesure pour emballer avec élégance tous vos cadeaux.</p>
+          <span class="product-tag">🌸 Tous Événements</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="general">
+        <div class="product-img"><div class="product-emoji">🎗️</div></div>
+        <div class="product-info">
+          <h3>Rubans Personnalisés</h3>
+          <p>Rubans satin imprimés à votre nom pour sublimer tous vos emballages.</p>
+          <span class="product-tag">🌸 Tous Événements</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="general">
+        <div class="product-img"><div class="product-emoji">📦</div></div>
+        <div class="product-info">
+          <h3>Boîtes Cadeaux</h3>
+          <p>Boîtes luxueuses personnalisées adaptées à tous vos événements.</p>
+          <span class="product-tag">🌸 Tous Événements</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="general">
+        <div class="product-img"><div class="product-emoji">🍫</div></div>
+        <div class="product-info">
+          <h3>Chocolats</h3>
+          <p>Ferrero Rocher · Raffaello · M&Ms · Kinder · Lindor · Petits cœurs</p>
+          <span class="product-tag">🌸 Tous Événements</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section id="apropos" class="apropos">
+    <div class="apropos-inner">
+      <div class="apropos-text">
+        <p class="section-label">✦ Notre Histoire</p>
+        <h2 class="section-title">À Propos</h2>
+        <p>Mia Atelier Créations est née d'une passion pour les belles choses et le désir de rendre chaque moment inoubliable. Chaque création est fabriquée avec soin, amour et une attention particulière aux détails.</p>
+        <p>Nous croyons que chaque cadeau raconte une histoire. C'est pourquoi nous personnalisons chaque pièce selon vos envies, pour que chaque événement de votre vie soit gravé dans les mémoires.</p>
+        <div class="apropos-stats">
+<div class="stat">
+            <span class="stat-number">✦</span>
+            <span class="stat-label">Personnalisé</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">❤️</span>
+            <span class="stat-label">Avec Amour</span>
+          </div>
+        </div>
+      </div>
+      <div class="apropos-deco">
+        <div class="apropos-card">
+          <p class="apropos-quote">"Chaque détail compte, chaque création est unique."</p>
+          <p class="apropos-author">— Mia Atelier Créations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="section-header">
+      <p class="section-label">✦ Parlons de Votre Projet</p>
+      <h2 class="section-title">Contactez-Nous</h2>
+      <p class="section-desc">Chaque commande est unique. Décrivez votre vision, nous la réalisons.</p>
+    </div>
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-icon">📱</span>
+          <div>
+            <p class="contact-label">Instagram</p>
+            <p class="contact-value">@Mia_creations</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <div>
+            <p class="contact-label">Email</p>
+            <p class="contact-value">mia.creations13@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">🕐</span>
+          <div>
+            <p class="contact-label">Délai de réponse</p>
+            <p class="contact-value">Sous 24h</p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <input type="text" placeholder="Votre prénom" required />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Votre email" required />
+        </div>
+        <div class="form-group">
+          <select>
+            <option value="" disabled selected>Type d'événement</option>
+            <option>Mariage</option>
+            <option>Fiançailles</option>
+            <option>Naissance / Baptême</option>
+            <option>Anniversaire</option>
+            <option>Autre événement</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Décrivez votre projet..." rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Envoyer ma Demande ✦</button>
+        <a href="https://wa.me/33613171411" target="_blank" class="btn-whatsapp">
+          <span>💬</span> Commander via WhatsApp
+        </a>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- CGV -->
+  <section id="cgv" class="cgv">
+    <div class="section-header">
+      <p class="section-label">✦ Informations Légales</p>
+      <h2 class="section-title">Conditions Générales de Vente</h2>
+      <p class="section-desc">Dernière mise à jour : Mai 2026</p>
+    </div>
+    <div class="cgv-inner">
+
+      <div class="cgv-article">
+        <h3>Article 1 — Objet</h3>
+        <p>Les présentes conditions générales de vente définissent les droits et obligations des parties dans le cadre de la vente en ligne de produits personnalisés proposés par <strong>Mia Atelier Créations</strong>, dont le siège social est situé à <strong>Marseille, France</strong>, sous le numéro SIREN : <strong>419 369 798</strong> (entreprise hébergée par la couveuse COSENS, Marseille).</p>
+        <p>Ces conditions régissent exclusivement les achats effectués par les consommateurs situés en France Métropolitaine et en Corse, concernant les produits suivants : dragées, contenants à dragées, cadeaux personnalisés, bougies, trousses, miroirs, porte-clés, maquillage, boîtes à gâteaux et à cadeaux, étiquettes, faire-part, rubans personnalisés et chocolats.</p>
+        <p>Elles sont accessibles sur le site internet : <strong>mia-atelier-creations.fr</strong> <span class="cgv-fill">[à confirmer lors de la mise en ligne]</span></p>
+        <p>L'acheteur déclare avoir pris connaissance des présentes conditions générales de vente et les avoir acceptées avant la validation de sa commande, conformément à l'article 1119 du Code civil.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 2 — Informations Précontractuelles</h3>
+        <p>Préalablement à tout contrat, l'acheteur reconnaît avoir pris connaissance, de manière lisible et compréhensible, des conditions générales de vente et de toutes informations listées aux articles L111-1 et L221-5 du Code de la consommation, notamment :</p>
+        <ul>
+          <li>Les caractéristiques essentielles du bien ou du service</li>
+          <li>Le prix du bien ou du service et les frais supplémentaires (transport, livraison)</li>
+          <li>La date ou le délai de livraison</li>
+          <li>Les modalités de paiement et de livraison</li>
+          <li>L'existence du droit de rétractation et ses conditions</li>
+          <li>L'identité du professionnel et ses coordonnées</li>
+          <li>Les garanties légales et commerciales</li>
+          <li>La possibilité de recourir à un médiateur de la consommation</li>
+        </ul>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 3 — Produits</h3>
+        <p>Les produits soumis aux présentes CGV sont ceux figurant sur le site internet de <strong>Mia Atelier Créations</strong>. Ils sont proposés à la vente dans la limite des stocks disponibles. Les images représentant les produits ne sont pas contractuelles.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 4 — Commande</h3>
+        <p>L'acheteur peut passer sa commande directement via le formulaire de contact du site ou par WhatsApp au <strong>+33 6 13 17 14 11</strong>.</p>
+        <p>Le client s'engage à communiquer uniquement des informations réelles et valides. <strong>Mia Atelier Créations</strong> ne saurait être tenu responsable des informations erronées transmises par le client. Pour toute question relative à une commande, contacter Mia au <strong>+33 6 13 17 14 11</strong>, du lundi au vendredi de 10h à 18h.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 5 — Signature Électronique</h3>
+        <p>La validation et le paiement de la commande valent signature électronique et acceptation de la vente entre les parties.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 6 — Confirmation de Commande</h3>
+        <p>Mia Atelier Créations fournit à l'acheteur les informations récapitulatives de sa commande au moyen d'une confirmation écrite par voie d'e-mail ou de message WhatsApp.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 7 — Prix</h3>
+        <p>Tous les prix des produits proposés à la vente sont indiqués en euros toutes taxes comprises, hors frais de livraison facturés en supplément et indiqués avant la validation de la commande.</p>
+        <p><strong>Mia Atelier Créations</strong> se réserve la faculté de modifier ses prix à tout moment, mais s'engage à appliquer les tarifs en vigueur lors de la validation de la commande. Le prix doit être payé intégralement au moment de la commande.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 8 — Règlement</h3>
+        <p>Le paiement est effectué selon les modes mis à disposition : virement bancaire, PayPal, ou tout autre moyen convenu entre les parties. Le règlement s'effectue au comptant au jour de la commande.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 9 — Retard de Paiement</h3>
+        <p>L'acheteur s'assure, lors de la validation de la commande, qu'il dispose des fonds suffisants. En cas de non-paiement, <strong>Mia Atelier Créations</strong> se réserve le droit de suspendre ou d'annuler la commande.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 10 — Livraison</h3>
+        <p>Les produits commandés sont livrés par voie postale en lettre suivie dans un délai de <strong>5 à 7 jours ouvrés</strong> à compter de la confirmation de commande. Pendant les périodes de congés, ce délai pourra être porté à 30 jours.</p>
+        <p>En cas de colis endommagé à la livraison, le client doit signaler toute réserve auprès du transporteur. <strong>Mia Atelier Créations</strong> ne saurait être tenu responsable des dommages survenus au cours de l'acheminement.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 11 — Retard de Livraison & Remboursement</h3>
+        <p>En cas de non-respect du délai de livraison, l'acheteur peut enjoindre le vendeur d'exécuter la livraison dans un délai supplémentaire raisonnable. À défaut, l'acheteur peut résoudre le contrat par courrier recommandé.</p>
+        <p>Lorsque le contrat est résolu, <strong>Mia Atelier Créations</strong> est tenu de rembourser la totalité des sommes versées dans les délais légaux prévus à l'article L242-4 du Code de la consommation.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 12 — Droit de Rétractation</h3>
+        <p>Conformément à l'article L221-18 du Code de la consommation, l'acheteur dispose d'un délai de <strong>14 jours</strong> pour exercer son droit de rétractation à compter de la réception du bien.</p>
+        <p>Pour exercer ce droit, le client doit notifier sa décision par email à : <strong>mia.creations13@gmail.com</strong> ou par WhatsApp au <strong>+33 6 13 17 14 11</strong>.</p>
+        <p><strong>⚠️ Exception :</strong> Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation est exclu pour les produits confectionnés selon les spécifications du consommateur ou nettement personnalisés (prénom gravé, date, couleurs spécifiques, etc.).</p>
+        <p>Les produits retournés doivent être dans leur emballage d'origine et en parfait état, dans un délai de 3 jours suivant la notification. Les frais de retour sont à la charge de l'acheteur. Le remboursement est effectué dans les 14 jours suivant la réception du retour.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 13 — Force Majeure</h3>
+        <p>La responsabilité de <strong>Mia Atelier Créations</strong> ne pourra être mise en œuvre si la non-exécution ou le retard découle d'un cas de force majeure au sens de l'article 1218 du Code civil.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 14 — Garanties</h3>
+        <p><strong>Mia Atelier Créations</strong> est tenu des défauts de conformité dans les conditions des articles L217-4 et suivants du Code de la consommation, et des défauts cachés dans les conditions des articles 1641 et suivants du Code civil.</p>
+        <p>Le consommateur bénéficie d'un délai de <strong>2 ans</strong> à compter de la délivrance du bien pour agir. Tout défaut devra être signalé par email ou WhatsApp dans un délai maximum de <strong>3 jours</strong> à compter de sa découverte.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 15 — Propriété Intellectuelle</h3>
+        <p>L'ensemble du contenu du site (photographies, images, dessins, textes, créations) reste la propriété exclusive de <strong>Mia Atelier Créations</strong> et est protégé par le droit de la propriété intellectuelle. Toute reproduction totale ou partielle est strictement interdite.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 16 — Données Personnelles</h3>
+        <p><strong>Mia Atelier Créations</strong> est responsable du traitement et de la collecte des données personnelles de l'acheteur, utilisées uniquement pour la gestion des commandes. L'acheteur dispose d'un droit d'accès, de modification et d'opposition en contactant : <strong>mia.creations13@gmail.com</strong>. En cas de litige, recours possible auprès de la CNIL.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 17 — Non-validation Partielle</h3>
+        <p>Si une stipulation des présentes CGV est tenue pour non valide, les autres stipulations garderont toute leur force et leur portée.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 18 — Loi Applicable</h3>
+        <p>Les présentes CGV sont soumises au droit français. Tous les litiges relèvent de la compétence des tribunaux judiciaires de <strong>Marseille</strong>.</p>
+      </div>
+
+      <div class="cgv-article">
+        <h3>Article 19 — Responsabilité</h3>
+        <p>Le client est responsable du bon usage des produits achetés. <strong>Mia Atelier Créations</strong> ne pourra en aucun cas être tenu responsable en cas d'accident imputable à un mauvais usage. Les produits contenant des petits éléments doivent être tenus hors de portée des enfants en bas âge.</p>
+      </div>
+
+      <div class="cgv-note">
+        <p>✦ Pour toute question relative aux présentes CGV, contactez-nous via WhatsApp au <strong>+33 6 13 17 14 11</strong> ou par Instagram <strong>@Mia_creations</strong>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-logo">Mia <span>Atelier</span> Créations</p>
+      <p class="footer-sig">Instagram: @Mia_creations</p>
+      <p class="footer-links"><a href="#cgv">Conditions Générales de Vente</a></p>
+      <p class="footer-copy">© 2026 Mia Atelier Créations — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
