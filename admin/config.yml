@@ -1,1 +1,23 @@
 
+backend:
+  name: github
+  repo: miacreations13-droid/mia-atelier-creations
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: 'fr'
+
+collections:
+  - name: "produits"
+    label: "Produits"
+    folder: "_produits"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nom", name: "titre", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Catégorie", name: "categorie", widget: "select", options: ["mariage", "naissance", "anniversaire", "fiancailles", "beaute", "general"]}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Emoji", name: "emoji", widget: "string"}
