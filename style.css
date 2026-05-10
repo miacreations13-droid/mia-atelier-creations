@@ -641,3 +641,22 @@ img { max-width: 100%; }
   font-weight: 300;
   margin: 0;
 }
+
+/* ===== FOOTER LINKS ===== */
+.footer-links {
+  margin-bottom: 12px;
+}
+.footer-links a {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(201,168,76,0.6);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  padding-bottom: 2px;
+  transition: var(--transition);
+}
+.footer-links a:hover {
+  color: var(--or);
+  border-color: var(--or);
+}
