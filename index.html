@@ -1,585 +1,1146 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mia Atelier Créations — Cadeaux Personnalisés Haut de Gamme</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mia Atelier — Créations sur mesure</title>
+<meta name="description" content="Mia Atelier — Dragées, contenants, faire-part et décoration personnalisés pour tous vos événements. Mariage, fiançailles, baptême, anniversaire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+/* ============================================================
+   MIA ATELIER — CSS Responsive Premium
+   Mobile-first · Luxe éditorial · Or mat & Rose poudré
+   ============================================================ */
+
+:root {
+  --or:         #c9a84c;
+  --or-d:       #a88430;
+  --or-pale:    #fdf8ee;
+  --or-ghost:   rgba(201,168,76,0.1);
+  --rose:       #e8b4b8;
+  --rose-deep:  #c9848a;
+  --rose-pale:  #fdf0f0;
+  --blanc:      #ffffff;
+  --creme:      #faf7f2;
+  --creme-w:    #f5efe6;
+  --texte:      #1e1510;
+  --texte-m:    #4a3828;
+  --texte-d:    #8a7060;
+  --texte-g:    rgba(30,21,16,0.4);
+  --ft:         'Cormorant Garamond', Georgia, serif;
+  --fb:         'Jost', sans-serif;
+  --ease:       cubic-bezier(0.16,1,0.3,1);
+  --ease-s:     cubic-bezier(0.25,0.46,0.45,0.94);
+  --r:          10px;
+  --r-l:        18px;
+  --r-pill:     100px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--fb);color:var(--texte);background:var(--creme);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+::selection{background:rgba(201,168,76,0.2);color:var(--texte)}
+
+/* ── GRAIN ── */
+body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.016;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:150px}
+
+/* ══════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════ */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:66px;padding:0 clamp(16px,4vw,48px);
+  background:rgba(250,247,242,.92);
+  backdrop-filter:blur(18px) saturate(1.4);
+  border-bottom:1px solid rgba(201,168,76,.12);
+  transition:box-shadow .4s var(--ease-s);
+}
+#navbar.scrolled{box-shadow:0 1px 0 rgba(201,168,76,.15),0 8px 28px rgba(30,21,16,.06)}
+.nav-inner{max-width:1280px;margin:0 auto;height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{font-family:var(--ft);font-size:clamp(1.2rem,3vw,1.5rem);font-weight:500;letter-spacing:.04em;white-space:nowrap;flex-shrink:0}
+.nav-logo span{color:var(--or);font-style:italic;font-weight:300}
+.nav-links{list-style:none;display:flex;align-items:center;gap:clamp(18px,2.5vw,36px)}
+.nav-links a{font-size:.65rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--texte-d);transition:color .3s;position:relative;padding-bottom:2px}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--or);transition:width .35s var(--ease)}
+.nav-links a:hover{color:var(--or)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-size:.6rem!important;padding:8px 18px!important;background:linear-gradient(135deg,var(--or),var(--rose-deep))!important;color:#fff!important;border-radius:var(--r-pill)!important;box-shadow:0 4px 18px rgba(201,168,76,.28)!important;transition:transform .3s var(--ease),box-shadow .3s var(--ease)!important}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{transform:translateY(-2px)!important;box-shadow:0 8px 28px rgba(201,168,76,.38)!important}
+.burger{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--texte);padding:4px;flex-shrink:0}
+/* Mobile menu */
+.mob-menu{display:none;position:fixed;top:66px;left:0;right:0;bottom:0;z-index:999;background:rgba(250,247,242,.98);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:28px;border-top:1px solid rgba(201,168,76,.12)}
+.mob-menu.open{display:flex;animation:fadeIn .3s var(--ease)}
+.mob-menu a{font-family:var(--ft);font-size:clamp(1.6rem,5vw,2.2rem);font-weight:300;color:var(--texte);letter-spacing:.04em;transition:color .25s}
+.mob-menu a:hover,.mob-menu a.mob-cta{color:var(--or)}
+.mob-menu a.mob-cta{font-family:var(--fb);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;padding:12px 32px;background:linear-gradient(135deg,var(--or),var(--rose-deep));color:#fff!important;border-radius:var(--r-pill);margin-top:8px;box-shadow:0 6px 24px rgba(201,168,76,.3)}
+.mob-close{position:absolute;top:20px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--texte-d)}
+
+/* ══════════════════════════════════════════
+   BOUTONS
+══════════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--fb);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:400;border:none;cursor:pointer;border-radius:var(--r-pill);transition:all .35s var(--ease);position:relative;overflow:hidden;white-space:nowrap}
+.btn span{position:relative;z-index:1}
+.btn-gold{padding:13px clamp(22px,4vw,36px);background:linear-gradient(135deg,var(--or),var(--rose-deep));color:#fff;box-shadow:0 6px 24px rgba(201,168,76,.3)}
+.btn-gold::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--rose-deep),var(--or));opacity:0;transition:opacity .35s}
+.btn-gold:hover::before{opacity:1}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(201,168,76,.4)}
+.btn-ghost{padding:12px clamp(20px,4vw,34px);background:transparent;color:var(--or);border:1.5px solid rgba(201,168,76,.45)}
+.btn-ghost:hover{background:var(--or);color:#fff;border-color:var(--or);transform:translateY(-2px)}
+.btn-wa{padding:12px clamp(20px,4vw,32px);background:#25D366;color:#fff;box-shadow:0 6px 20px rgba(37,211,102,.25)}
+.btn-wa:hover{background:#1da851;transform:translateY(-2px)}
+.btn-sm{padding:7px 16px;font-size:.58rem}
+.btn-full{width:100%;justify-content:center}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero{min-height:100svh;padding-top:66px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;background:linear-gradient(150deg,#fdf9f2 0%,#fdf4ee 40%,#faf7f2 100%)}
+/* Déco orbes */
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none}
+.orb1{width:clamp(280px,45vw,600px);height:clamp(280px,45vw,600px);top:-10%;right:-8%;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%);animation:pulse 7s ease-in-out infinite}
+.orb2{width:clamp(200px,30vw,380px);height:clamp(200px,30vw,380px);bottom:-5%;left:-5%;background:radial-gradient(circle,rgba(232,180,184,.18) 0%,transparent 70%);animation:pulse 9s 2s ease-in-out infinite}
+.orb3{width:clamp(160px,20vw,260px);height:clamp(160px,20vw,260px);top:40%;left:38%;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);animation:pulse 11s 4s ease-in-out infinite}
+/* Colonne texte */
+.hero-text{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:clamp(32px,6vw,80px) clamp(24px,5vw,72px)}
+.hero-eyebrow{font-size:clamp(.58rem,.8vw,.68rem);letter-spacing:.38em;text-transform:uppercase;color:var(--or);font-weight:300;margin-bottom:clamp(14px,2.5vh,22px);display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--or);flex-shrink:0}
+.hero-h1{font-family:var(--ft);font-size:clamp(2.4rem,5.5vw,5.2rem);font-weight:300;line-height:1.02;letter-spacing:-.015em;margin-bottom:clamp(16px,2.5vh,28px);color:var(--texte)}
+.hero-h1 em{color:var(--or);font-style:italic}
+.hero-h1 strong{font-weight:500;display:block}
+.hero-sub{font-size:clamp(.82rem,.95vw,.92rem);font-weight:300;color:var(--texte-d);line-height:1.82;letter-spacing:.03em;margin-bottom:clamp(28px,4vh,44px);max-width:min(100%,440px)}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:clamp(32px,5vh,52px)}
+.hero-stats{display:flex;gap:clamp(20px,4vw,44px);padding-top:clamp(20px,3vh,36px);border-top:1px solid rgba(201,168,76,.15)}
+.stat-num{display:block;font-family:var(--ft);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;color:var(--or);line-height:1}
+.stat-lbl{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--texte-d);margin-top:4px;display:block}
+/* Colonne visuelle */
+.hero-visual{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,.1);top:50%;left:50%;transform:translate(-50%,-50%)}
+.ring1{width:clamp(200px,28vw,380px);height:clamp(200px,28vw,380px);animation:spin 22s linear infinite}
+.ring2{width:clamp(300px,40vw,540px);height:clamp(300px,40vw,540px);animation:spin 32s linear infinite reverse}
+.hero-card{position:relative;z-index:3;width:clamp(220px,25vw,300px);background:rgba(255,255,255,.75);backdrop-filter:blur(16px);border:1px solid rgba(201,168,76,.22);border-radius:var(--r-l);padding:clamp(22px,3vw,36px) clamp(18px,2.5vw,28px);box-shadow:0 24px 80px rgba(30,21,16,.1),inset 0 0 0 1px rgba(255,255,255,.6);animation:float 5s ease-in-out infinite}
+.hcard-tag{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--or);margin-bottom:16px;font-weight:400}
+.hcard-icon{font-size:clamp(2.4rem,4vw,3.2rem);text-align:center;margin:auto 0;padding:clamp(10px,2vh,20px) 0}
+.hcard-name{font-family:var(--ft);font-size:clamp(1.1rem,1.6vw,1.35rem);font-weight:400;color:var(--texte);margin-bottom:4px}
+.hcard-sub{font-size:.72rem;color:var(--texte-d);font-weight:300}
+/* Chips flottantes */
+.chip{position:absolute;z-index:4;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,.2);border-radius:var(--r-pill);padding:7px 15px;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--texte-m);box-shadow:0 8px 24px rgba(30,21,16,.07);white-space:nowrap}
+.chip1{top:18%;left:4%;animation:float2 4s ease-in-out infinite}
+.chip2{bottom:22%;right:3%;animation:float2 5s 1s ease-in-out infinite}
+.chip3{top:65%;left:3%;animation:float2 6s 2s ease-in-out infinite}
+
+/* ══════════════════════════════════════════
+   SECTIONS COMMUNES
+══════════════════════════════════════════ */
+section{padding:clamp(60px,10vh,120px) clamp(16px,5vw,48px)}
+.sec-head{text-align:center;max-width:640px;margin:0 auto clamp(44px,8vh,72px)}
+.sec-lbl{display:inline-flex;align-items:center;gap:10px;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--or);font-weight:300;margin-bottom:16px}
+.sec-lbl::before,.sec-lbl::after{content:'';width:24px;height:1px;background:rgba(201,168,76,.4)}
+.sec-title{font-family:var(--ft);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:300;color:var(--texte);line-height:1.08;letter-spacing:-.01em;margin-bottom:14px}
+.sec-title em{color:var(--or);font-style:italic}
+.sec-desc{font-size:clamp(.82rem,.9vw,.9rem);color:var(--texte-d);line-height:1.82;font-weight:300}
+.gold-bar{width:70px;height:2px;margin:16px auto 0;background:linear-gradient(90deg,transparent,var(--or),transparent)}
+
+/* ══════════════════════════════════════════
+   BOUTIQUE
+══════════════════════════════════════════ */
+#boutique{background:var(--blanc)}
+.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:clamp(36px,6vh,56px)}
+.fbtn{padding:7px 18px;border:1.5px solid rgba(201,168,76,.25);border-radius:var(--r-pill);background:transparent;color:var(--texte-d);font-family:var(--fb);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:all .3s var(--ease);display:flex;align-items:center;gap:5px}
+.fbtn:hover{border-color:var(--or);color:var(--or);background:var(--or-pale)}
+.fbtn.on{background:linear-gradient(135deg,var(--or),var(--rose-deep));border-color:transparent;color:#fff;box-shadow:0 4px 16px rgba(201,168,76,.28)}
+/* Grille responsive */
+.pgrid{max-width:1280px;margin:0 auto;display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))}
+/* Layout alterné desktop */
+@media(min-width:960px){
+  .pgrid{grid-template-columns:repeat(12,1fr)}
+  .pc:nth-child(1){grid-column:span 5}
+  .pc:nth-child(2){grid-column:span 4}
+  .pc:nth-child(3){grid-column:span 3}
+  .pc:nth-child(4){grid-column:span 4}
+  .pc:nth-child(5){grid-column:span 5}
+  .pc:nth-child(6){grid-column:span 3}
+}
+.pc{background:var(--creme);border:1px solid rgba(201,168,76,.1);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s;position:relative}
+.pc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--or),var(--rose-deep));transition:width .45s var(--ease)}
+.pc:hover{transform:translateY(-7px);box-shadow:0 24px 64px rgba(30,21,16,.1);border-color:rgba(201,168,76,.2)}
+.pc:hover::after{width:100%}
+.pc.hidden{display:none}
+.pc-img{height:clamp(150px,18vw,195px);display:flex;align-items:center;justify-content:center;font-size:clamp(2.4rem,4vw,3.4rem);position:relative;overflow:hidden;transition:transform .5s var(--ease)}
+.pc:hover .pc-img{transform:scale(1.04)}
+.pc-img.r{background:linear-gradient(140deg,#fef1f3,#f9d5e0,#f0c2cb)}
+.pc-img.o{background:linear-gradient(140deg,#fef9e7,#f5e0a0,#e8cc80)}
+.pc-img.b{background:linear-gradient(140deg,#eef4fd,#d5e8f8,#b8d4f0)}
+.pc-img.g{background:linear-gradient(140deg,#eef7ee,#d0ecd0,#b4ddb4)}
+.pc-img.m{background:linear-gradient(140deg,#f3eef9,#e0d0f5,#cbb8ee)}
+.pc-img.n{background:linear-gradient(140deg,#fdf6ee,#f5e8d0,#e8d2b0)}
+.pc-etag{position:absolute;top:10px;right:10px;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.88);backdrop-filter:blur(4px);color:var(--or);padding:3px 10px;border-radius:var(--r-pill);border:1px solid rgba(201,168,76,.15)}
+.pc-body{padding:clamp(18px,2.5vw,26px) clamp(16px,2vw,22px)}
+.pc-body h3{font-family:var(--ft);font-size:clamp(1.1rem,1.8vw,1.3rem);font-weight:400;color:var(--texte);margin-bottom:7px}
+.pc-body p{font-size:clamp(.75rem,.82vw,.82rem);color:var(--texte-d);line-height:1.7;font-weight:300;margin-bottom:14px}
+.pc-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.pc-tag{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--or);border:1px solid rgba(201,168,76,.28);padding:4px 11px;border-radius:var(--r-pill);background:var(--or-pale)}
+
+/* ══════════════════════════════════════════
+   BANNER SUR MESURE
+══════════════════════════════════════════ */
+.banner-wrap{padding:0 clamp(16px,5vw,48px) clamp(60px,8vh,100px);background:var(--blanc)}
+.banner{max-width:1280px;margin:0 auto;background:linear-gradient(135deg,#1e1510 0%,#3a2418 45%,#2a1a10 100%);border-radius:var(--r-l);padding:clamp(36px,6vw,64px) clamp(28px,6vw,72px);display:grid;grid-template-columns:1fr auto;align-items:center;gap:clamp(24px,4vw,56px);position:relative;overflow:hidden}
+.banner::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 70%)}
+.banner-lbl{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(201,168,76,.55);margin-bottom:10px;font-weight:300}
+.banner h2{font-family:var(--ft);font-size:clamp(1.5rem,3vw,2.5rem);color:#f5e8c8;font-weight:300;margin-bottom:12px;line-height:1.15}
+.banner h2 em{color:var(--or);font-style:italic}
+.banner p{font-size:clamp(.78rem,.85vw,.86rem);color:rgba(201,168,76,.55);line-height:1.75;font-weight:300;max-width:460px}
+.banner-cta{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;position:relative;z-index:1}
+.banner-note{font-size:.58rem;color:rgba(201,168,76,.4);letter-spacing:.12em;text-transform:uppercase}
+
+/* ══════════════════════════════════════════
+   DRAGÉES
+══════════════════════════════════════════ */
+#dragees{background:var(--creme-w);position:relative}
+#dragees::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 90% 20%,rgba(201,168,76,.04) 0%,transparent 60%),radial-gradient(ellipse 50% 60% at 10% 80%,rgba(232,180,184,.06) 0%,transparent 60%)}
+.dragcat{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.dcat{background:var(--blanc);border:1px solid rgba(201,168,76,.14);border-radius:var(--r);overflow:hidden;transition:box-shadow .4s var(--ease-s),border-color .3s}
+.dcat:hover{border-color:rgba(201,168,76,.24)}
+.dcat.open{border-color:rgba(201,168,76,.3);box-shadow:0 10px 44px rgba(30,21,16,.06)}
+.dcat-head{display:flex;align-items:center;gap:clamp(10px,2vw,16px);padding:clamp(14px,2vw,20px) clamp(16px,3vw,28px);cursor:pointer;transition:background .3s;user-select:none}
+.dcat.open .dcat-head{background:linear-gradient(135deg,var(--or-pale),rgba(253,240,240,.5));border-bottom:1px solid rgba(201,168,76,.12)}
+.dcat-icon{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--or-pale),rgba(253,240,240,.8));border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .35s var(--ease)}
+.dcat.open .dcat-icon{background:linear-gradient(135deg,var(--or),var(--rose-deep));border-color:transparent;box-shadow:0 4px 14px rgba(201,168,76,.3)}
+.dcat-icon i{font-size:17px;color:var(--or);transition:color .3s}
+.dcat.open .dcat-icon i{color:#fff}
+.dcat-info{flex:1;min-width:0}
+.dcat-info h4{font-family:var(--ft);font-size:clamp(1rem,2vw,1.2rem);font-weight:400;color:var(--texte)}
+.dcat-info span{font-size:.72rem;color:var(--texte-d);font-weight:300}
+.dcat-badge{font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;background:var(--or-pale);color:var(--or);border:1px solid rgba(201,168,76,.25);padding:4px 12px;border-radius:var(--r-pill);flex-shrink:0;display:none}
+@media(min-width:480px){.dcat-badge{display:inline-flex}}
+.dcat-toggle{width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;color:var(--or);font-size:13px;flex-shrink:0;transition:all .38s var(--ease)}
+.dcat.open .dcat-toggle{transform:rotate(180deg);background:var(--or);color:#fff;border-color:var(--or)}
+.dcat-body{display:none;padding:clamp(18px,3vw,28px) clamp(16px,3vw,32px) clamp(22px,3vw,32px);animation:slideDown .32s var(--ease)}
+.dcat.open .dcat-body{display:block}
+.type-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tbadge{font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;padding:5px 15px;border:1px solid rgba(201,168,76,.28);color:var(--or);background:var(--or-pale);border-radius:var(--r-pill)}
+.sw-lbl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--texte-g);margin-bottom:14px;font-weight:400;display:block}
+.swatches{display:flex;flex-wrap:wrap;gap:clamp(10px,2vw,16px)}
+.sw{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;transition:transform .25s var(--ease)}
+.sw:hover{transform:translateY(-4px)}
+.sw-dot{width:clamp(38px,5vw,48px);height:clamp(38px,5vw,48px);border-radius:50%;border:3px solid rgba(255,255,255,.9);box-shadow:0 3px 12px rgba(0,0,0,.14);transition:box-shadow .25s}
+.sw:hover .sw-dot{box-shadow:0 6px 20px rgba(0,0,0,.18)}
+.sw-dot.mix{display:grid;grid-template-columns:1fr 1fr;border-radius:50%;overflow:hidden}
+.sw-name{font-size:.6rem;text-align:center;color:var(--texte-d);max-width:52px;line-height:1.3;font-weight:300}
+.cat-note{font-size:.78rem;color:var(--texte-d);font-style:italic;margin-top:20px;padding:12px 18px;border-left:3px solid var(--or);background:linear-gradient(135deg,var(--or-pale),rgba(253,240,240,.4));border-radius:0 var(--r) var(--r) 0;font-weight:300;line-height:1.65}
+
+/* ══════════════════════════════════════════
+   CONFIGURATEUR DEVIS
+══════════════════════════════════════════ */
+#devis{background:var(--blanc)}
+.cfg{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;border-radius:var(--r-l);overflow:hidden;box-shadow:0 24px 90px rgba(30,21,16,.1),0 0 0 1px rgba(201,168,76,.14)}
+.cfg-main{border-right:1px solid rgba(201,168,76,.12);min-width:0}
+.cfg-side{background:linear-gradient(180deg,var(--or-pale) 0%,rgba(253,240,240,.4) 100%);padding:clamp(18px,3vw,28px) clamp(14px,2vw,22px);display:flex;flex-direction:column;gap:14px}
+/* Progress */
+.cfg-prog{display:flex;align-items:center;padding:clamp(12px,2vw,18px) clamp(16px,3vw,28px);background:var(--blanc);border-bottom:1px solid rgba(201,168,76,.1);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cfg-prog::-webkit-scrollbar{height:0}
+.ps{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:36px;cursor:pointer;opacity:.32;transition:opacity .3s}
+.ps.done{opacity:.6}
+.ps.active{opacity:1}
+.ps-dot{width:clamp(22px,3vw,28px);height:clamp(22px,3vw,28px);border-radius:50%;border:1.5px solid rgba(201,168,76,.3);background:var(--blanc);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:500;color:var(--texte-d);transition:all .35s var(--ease)}
+.ps.active .ps-dot{background:linear-gradient(135deg,var(--or),var(--rose-deep));border-color:transparent;color:#fff;box-shadow:0 4px 14px rgba(201,168,76,.33)}
+.ps.done .ps-dot{background:var(--or-pale);border-color:var(--or);color:var(--or)}
+.ps-line{flex:1;min-width:8px;height:1px;background:rgba(201,168,76,.18);margin-bottom:14px}
+.ps-lbl{font-size:.5rem;letter-spacing:.06em;text-transform:uppercase;color:var(--texte-d);text-align:center;max-width:48px;line-height:1.3;display:none}
+@media(min-width:600px){.ps-lbl{display:block}}
+/* Panels */
+.cpanel{display:none;padding:clamp(18px,3vw,28px) clamp(18px,3.5vw,32px);animation:fadeUp .26s var(--ease)}
+.cpanel.active{display:block}
+.step-ctr{font-size:.58rem;color:var(--texte-g);margin-bottom:4px;letter-spacing:.1em;text-transform:uppercase}
+.panel-t{font-family:var(--ft);font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:300;color:var(--texte);margin-bottom:5px}
+.panel-s{font-size:.8rem;color:var(--texte-d);margin-bottom:18px;line-height:1.65;font-weight:300}
+.multi-h{font-size:.7rem;color:var(--or);margin-bottom:14px;font-style:italic}
+/* Option cards */
+.ogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(clamp(120px,18vw,152px),1fr));gap:8px;margin-bottom:16px}
+.ocard{border:1.5px solid rgba(201,168,76,.16);background:var(--blanc);cursor:pointer;transition:all .32s var(--ease);overflow:hidden;position:relative;border-radius:var(--r)}
+.ocard:hover{border-color:var(--or);background:var(--or-pale);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.12)}
+.ocard.sel{border-color:var(--or);background:var(--or-pale);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.oc-chk{position:absolute;top:7px;right:7px;width:17px;height:17px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--rose-deep));display:none;align-items:center;justify-content:center;z-index:2;box-shadow:0 2px 8px rgba(201,168,76,.3)}
+.ocard.sel .oc-chk{display:flex}
+.oc-chk i{font-size:9px;color:#fff}
+.pz{width:100%;height:clamp(64px,8vw,82px);background:var(--creme-w);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;position:relative;overflow:hidden;cursor:pointer;border-bottom:1px solid rgba(201,168,76,.1);transition:background .2s}
+.pz:hover{background:rgba(201,168,76,.08)}
+.pz img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.pz-hint{display:flex;flex-direction:column;align-items:center;gap:2px;pointer-events:none;z-index:1}
+.pz-hint i{font-size:17px;color:rgba(201,168,76,.38);transition:color .2s}
+.pz:hover .pz-hint i{color:var(--or)}
+.pz-hint span{font-size:.54rem;color:rgba(201,168,76,.38);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.pz:hover .pz-hint span{color:var(--or)}
+.pz input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;z-index:3}
+.ob{padding:9px 11px 11px}
+.ob-ico{font-size:15px;color:var(--or);margin-bottom:3px}
+.ob-t{font-size:.75rem;font-weight:500;color:var(--texte);line-height:1.2}
+.ob-s{font-size:.62rem;color:var(--texte-d);margin-top:2px;line-height:1.3;font-weight:300}
+/* Sub panels */
+.spanel{background:linear-gradient(135deg,var(--or-pale),rgba(253,240,240,.5));border:1px solid rgba(201,168,76,.16);padding:clamp(12px,2vw,18px) clamp(12px,2vw,20px);margin-top:12px;border-radius:var(--r)}
+.sp-t{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:10px;font-weight:400}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.pill{font-size:.66rem;padding:5px 13px;border:1px solid rgba(201,168,76,.22);background:var(--blanc);color:var(--texte-d);cursor:pointer;transition:all .28s var(--ease);font-family:var(--fb);border-radius:var(--r-pill)}
+.pill:hover{border-color:var(--or);color:var(--or);background:var(--or-pale)}
+.pill.on{background:linear-gradient(135deg,var(--or),var(--rose-deep));color:#fff;border-color:transparent;box-shadow:0 3px 10px rgba(201,168,76,.26)}
+/* Fields */
+.field{margin-bottom:12px}
+.field label{display:block;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texte-g);margin-bottom:5px;font-weight:400}
+.field input,.field textarea,.field select{width:100%;padding:9px 12px;border:1px solid rgba(201,168,76,.2);border-radius:var(--r);background:var(--creme);color:var(--texte);font-family:var(--fb);font-size:.82rem;font-weight:300;outline:none;transition:all .25s;appearance:none;-webkit-appearance:none}
+.field textarea{height:66px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--or);background:#fff;box-shadow:0 0 0 3px rgba(201,168,76,.08)}
+.field input::placeholder,.field textarea::placeholder{color:var(--texte-g)}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qty-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.stepper{display:flex;align-items:center;border:1px solid rgba(201,168,76,.25);border-radius:var(--r);background:var(--blanc);overflow:hidden}
+.stepper button{width:30px;height:30px;border:none;background:transparent;color:var(--or);font-size:1rem;cursor:pointer;transition:background .15s}
+.stepper button:hover{background:var(--or-pale)}
+.stepper input{width:46px;height:30px;border:none;border-left:1px solid rgba(201,168,76,.2);border-right:1px solid rgba(201,168,76,.2);text-align:center;font-family:var(--fb);font-size:.82rem;color:var(--texte);background:var(--blanc);outline:none}
+.navrow{display:flex;gap:8px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(201,168,76,.1)}
+.btn-prev{padding:9px 20px;border:1px solid rgba(201,168,76,.22);border-radius:var(--r-pill);background:transparent;color:var(--texte-d);font-family:var(--fb);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .3s var(--ease)}
+.btn-prev:hover{border-color:var(--or);color:var(--or)}
+.btn-next{padding:9px 24px;border:none;border-radius:var(--r-pill);background:linear-gradient(135deg,var(--or),var(--rose-deep));color:#fff;font-family:var(--fb);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .32s var(--ease);margin-left:auto;box-shadow:0 4px 16px rgba(201,168,76,.26)}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.36)}
+.btn-submit{width:100%;padding:12px;border:none;border-radius:var(--r-pill);background:linear-gradient(135deg,var(--or),var(--rose-deep));color:#fff;font-family:var(--fb);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .32s var(--ease);box-shadow:0 4px 16px rgba(201,168,76,.26)}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.36)}
+/* Sidebar */
+.side-t{font-family:var(--ft);font-size:1.05rem;font-weight:400;color:var(--texte);border-bottom:1px solid rgba(201,168,76,.18);padding-bottom:10px}
+.rc-cat{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--or);margin:10px 0 4px;font-weight:400}
+.rc-row{display:flex;justify-content:space-between;align-items:baseline;font-size:.72rem;padding:2px 0;gap:6px}
+.rc-row span:first-child{color:var(--texte-d);flex-shrink:0;font-weight:300}
+.rc-row span:last-child{color:var(--texte);font-weight:400;text-align:right;word-break:break-word}
+.rc-empty{font-size:.72rem;color:rgba(201,168,76,.38);font-style:italic;font-weight:300}
+.rc-thumb{width:30px;height:30px;object-fit:cover;border:1px solid rgba(201,168,76,.2);border-radius:5px}
+
+/* ══════════════════════════════════════════
+   À PROPOS
+══════════════════════════════════════════ */
+#apropos{background:linear-gradient(160deg,#fdf8f0 0%,#fdf0f0 60%,#faf7f2 100%);position:relative;overflow:hidden}
+#apropos::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);pointer-events:none}
+.apropos-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:5fr 6fr;gap:clamp(36px,6vw,80px);align-items:center}
+.ap-photo{aspect-ratio:3/4;background:var(--creme-w);border-radius:var(--r-l);border:1px solid rgba(201,168,76,.18);overflow:hidden;position:relative;box-shadow:0 28px 72px rgba(30,21,16,.1)}
+.ap-frame{position:absolute;inset:16px;border:1px solid rgba(201,168,76,.18);border-radius:var(--r);pointer-events:none;z-index:1}
+.ap-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(201,168,76,.3);text-align:center}
+.ap-ph i{font-size:clamp(2rem,5vw,3.2rem);display:block;margin-bottom:10px}
+.ap-ph p{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase}
+.ap-badge{position:absolute;bottom:-16px;right:-16px;z-index:2;background:linear-gradient(135deg,var(--or),var(--rose-deep));border-radius:var(--r);padding:16px 20px;text-align:center;color:#fff;box-shadow:0 10px 36px rgba(201,168,76,.32);border:3px solid #fff}
+.ap-badge-n{font-family:var(--ft);font-size:1.8rem;font-weight:300;display:block;line-height:1}
+.ap-badge-l{font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;opacity:.85;margin-top:3px;display:block}
+.ap-tag{display:inline-flex;align-items:center;gap:8px;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--or);margin-bottom:16px;font-weight:300}
+.ap-tag::before{content:'';width:22px;height:1px;background:var(--or)}
+.ap-h2{font-family:var(--ft);font-size:clamp(1.7rem,3.5vw,3rem);font-weight:300;line-height:1.12;color:var(--texte);margin-bottom:22px}
+.ap-h2 em{color:var(--or)}
+.ap-p{font-size:clamp(.82rem,.9vw,.88rem);color:var(--texte-d);line-height:1.88;font-weight:300;margin-bottom:16px}
+.vals{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;padding-top:28px;border-top:1px solid rgba(201,168,76,.14)}
+.val{display:flex;align-items:center;gap:9px;font-size:.8rem;color:var(--texte-m);font-weight:300}
+.val i{font-size:15px;color:var(--or);flex-shrink:0}
+
+/* ══════════════════════════════════════════
+   CONTACT
+══════════════════════════════════════════ */
+#contact{background:var(--blanc)}
+.contact-grid{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1.7fr;gap:clamp(36px,6vw,80px);align-items:start}
+.cnt-info-h{font-family:var(--ft);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:300;color:var(--texte);margin-bottom:20px;line-height:1.15}
+.cnt-info-h em{color:var(--or)}
+.cnt-info-p{font-size:.84rem;color:var(--texte-d);line-height:1.82;font-weight:300;margin-bottom:30px}
+.cnt-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:22px}
+.cnt-ico{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--or-pale),rgba(253,240,240,.6));border:1px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cnt-ico i{font-size:16px;color:var(--or)}
+.cnt-lbl{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--or);display:block;margin-bottom:3px;font-weight:400}
+.cnt-val{font-size:.86rem;color:var(--texte);font-weight:300}
+.cnt-form{background:var(--creme-w);border-radius:var(--r-l);border:1px solid rgba(201,168,76,.14);padding:clamp(24px,4vw,40px) clamp(20px,4vw,36px);box-shadow:0 16px 56px rgba(30,21,16,.06)}
+.cnt-form h3{font-family:var(--ft);font-size:1.4rem;font-weight:400;color:var(--texte);margin-bottom:22px}
+.fg{margin-bottom:13px}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 15px;border:1px solid rgba(201,168,76,.2);border-radius:var(--r);background:var(--blanc);color:var(--texte);font-family:var(--fb);font-size:.84rem;font-weight:300;outline:none;transition:all .25s;appearance:none;-webkit-appearance:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--or);box-shadow:0 0 0 3px rgba(201,168,76,.08)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--texte-g)}
+.fg textarea{min-height:110px;resize:vertical}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer{background:var(--texte);padding:clamp(44px,7vh,64px) clamp(16px,5vw,48px) clamp(28px,4vh,44px);text-align:center;position:relative;overflow:hidden}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent)}
+footer::after{content:'';position:absolute;top:-50px;left:50%;transform:translateX(-50%);width:400px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%)}
+.foot-in{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.foot-logo{font-family:var(--ft);font-size:clamp(1.6rem,4vw,2rem);color:#fff;font-weight:300;margin-bottom:7px}
+.foot-logo span{color:var(--or);font-style:italic}
+.foot-sig{font-size:.58rem;letter-spacing:.3em;color:rgba(201,168,76,.5);text-transform:uppercase;margin-bottom:24px;font-weight:300}
+.foot-insta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--or),var(--rose-deep));color:#fff;padding:9px clamp(18px,3vw,24px);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;border-radius:var(--r-pill);margin-bottom:28px;transition:all .35s var(--ease);box-shadow:0 6px 22px rgba(201,168,76,.24)}
+.foot-insta:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(201,168,76,.36)}
+.foot-links{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(12px,3vw,24px);margin-bottom:22px}
+.foot-links a{font-size:.58rem;letter-spacing:.18em;color:rgba(201,168,76,.45);text-transform:uppercase;transition:color .25s}
+.foot-links a:hover{color:var(--or)}
+.foot-copy{font-size:.58rem;color:rgba(255,255,255,.18);letter-spacing:.1em;border-top:1px solid rgba(255,255,255,.06);padding-top:18px}
+
+/* ── WhatsApp ── */
+.wa-btn{position:fixed;bottom:clamp(18px,3vw,32px);right:clamp(18px,3vw,32px);width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;box-shadow:0 6px 24px rgba(37,211,102,.4);z-index:998;transition:all .4s var(--ease)}
+.wa-btn:hover{transform:scale(1.12) rotate(-8deg);box-shadow:0 10px 36px rgba(37,211,102,.5)}
+.wa-tip{position:absolute;right:66px;top:50%;transform:translateY(-50%);background:var(--texte);color:#fff;font-size:.68rem;padding:5px 13px;border-radius:var(--r-pill);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .22s;font-family:var(--fb);letter-spacing:.05em;box-shadow:0 4px 14px rgba(30,21,16,.15)}
+.wa-btn:hover .wa-tip{opacity:1}
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════ */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.06);opacity:.85}}
+@keyframes spin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .72s var(--ease),transform .72s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+/* Hero stagger */
+.hero-eyebrow{animation:fadeUp .9s .1s var(--ease) both}
+.hero-h1{animation:fadeUp .9s .22s var(--ease) both}
+.hero-sub{animation:fadeUp .9s .34s var(--ease) both}
+.hero-btns{animation:fadeUp .9s .46s var(--ease) both}
+.hero-stats{animation:fadeUp .9s .58s var(--ease) both}
+.hero-card{animation:float 5s ease-in-out infinite,fadeIn 1s .7s var(--ease) both}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — TABLETTE
+══════════════════════════════════════════ */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-visual{display:none}
+  .hero-text{padding:clamp(90px,14vw,120px) clamp(20px,5vw,40px) 60px}
+  .banner{grid-template-columns:1fr;text-align:center}
+  .banner p{margin:0 auto}
+  .banner-cta{flex-direction:row;justify-content:center}
+  .apropos-grid{grid-template-columns:1fr;gap:40px}
+  .ap-photo{aspect-ratio:16/8;max-height:340px}
+  .ap-badge{bottom:12px;right:12px}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .cfg{grid-template-columns:1fr}
+  .cfg-side{display:none}
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — MOBILE
+══════════════════════════════════════════ */
+@media(max-width:640px){
+  #navbar{height:60px;padding:0 16px}
+  .nav-links{display:none}
+  .burger{display:block}
+  .mob-menu{top:60px}
+  section{padding:60px 16px}
+  .hero-text{padding:88px 16px 52px}
+  .hero-stats{flex-wrap:wrap;gap:18px}
+  .filters{gap:6px}
+  .fbtn{padding:6px 14px;font-size:.58rem}
+  .pgrid{grid-template-columns:1fr!important}
+  .pc:nth-child(n){grid-column:span 1!important}
+  .banner-wrap{padding:0 16px 60px}
+  .banner{padding:32px 22px;border-radius:var(--r)}
+  .banner-cta{flex-direction:column}
+  .twocol{grid-template-columns:1fr}
+  .vals{grid-template-columns:1fr}
+  .ogrid{grid-template-columns:1fr 1fr}
+  .contact-grid{gap:32px}
+  .cnt-form{padding:22px 18px}
+  .apropos-grid{gap:28px}
+  .ap-photo{max-height:260px}
+  .cfg-prog{padding:10px 14px}
+  .cpanel{padding:16px 16px}
+  .navrow .btn-next,.navrow .btn-prev{font-size:.56rem;padding:8px 16px}
+  .dcat-head{padding:13px 16px;gap:10px}
+  .dcat-body{padding:16px 16px 20px}
+  .swatches{gap:10px}
+  .sw-dot{width:36px;height:36px}
+}
+
+@media(max-width:380px){
+  .hero-h1{font-size:2rem}
+  .sec-title{font-size:1.8rem}
+  .ogrid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#accueil" class="nav-logo">Mia <span>Atelier</span></a>
-      <button class="nav-toggle" id="navToggle">&#9776;</button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#boutique">Boutique</a></li>
-        <li><a href="#apropos">À Propos</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#accueil" class="nav-logo">Mia <span>Atelier</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#boutique">Boutique</a></li>
+      <li><a href="#dragees">Dragées</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#devis" class="nav-cta">Devis gratuit</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+  </div>
+</nav>
+
+<!-- Menu mobile -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose"><i class="ti ti-x"></i></button>
+  <a href="#accueil" class="mob-link">Accueil</a>
+  <a href="#boutique" class="mob-link">Boutique</a>
+  <a href="#dragees" class="mob-link">Dragées</a>
+  <a href="#apropos" class="mob-link">À propos</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="#devis" class="mob-cta mob-link">Devis gratuit →</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section id="accueil" class="hero">
+  <!-- Orbes décoratifs -->
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+  <!-- Texte -->
+  <div class="hero-text">
+    <p class="hero-eyebrow">Créations artisanales sur mesure</p>
+    <h1 class="hero-h1">L'élégance<br>de vos <em>moments</em><br><strong>précieux</strong></h1>
+    <p class="hero-sub">Dragées, contenants, faire-part et décoration — chaque détail pensé avec soin pour sublimer vos événements les plus chers.</p>
+    <div class="hero-btns">
+      <button class="btn btn-gold" onclick="scrollTo('#devis')"><span>Demander un devis</span></button>
+      <button class="btn btn-ghost" onclick="scrollTo('#boutique')">Découvrir la boutique</button>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <section id="accueil" class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <p class="hero-sub">✦ Créations Personnalisées Haut de Gamme</p>
-      <h1 class="hero-title">Mia Atelier<br /><em>Créations</em></h1>
-      <p class="hero-desc">Cadeaux personnalisés pour chaque événement — conçus avec amour, livrés avec élégance.</p>
-      <a href="#boutique" class="btn-primary">Découvrir la Boutique</a>
+    <div class="hero-stats">
+      <div><span class="stat-num">500+</span><span class="stat-lbl">Événements réalisés</span></div>
+      <div><span class="stat-num">100%</span><span class="stat-lbl">Sur mesure</span></div>
+      <div><span class="stat-num">24h</span><span class="stat-lbl">Délai de réponse</span></div>
     </div>
-    <div class="hero-deco">
-      <span class="deco-circle c1"></span>
-      <span class="deco-circle c2"></span>
-      <span class="deco-line"></span>
+  </div>
+  <!-- Visuel (caché mobile) -->
+  <div class="hero-visual">
+    <div class="hero-ring ring1"></div>
+    <div class="hero-ring ring2"></div>
+    <div class="hero-card">
+      <span class="hcard-tag">✦ Mia Atelier</span>
+      <div class="hcard-icon">🎀</div>
+      <div>
+        <div class="hcard-name">Dragées & Contenants</div>
+        <div class="hcard-sub">Personnalisés pour votre événement</div>
+      </div>
     </div>
-    <div class="hero-signature">Instagram: @Mia_creations</div>
-  </section>
+    <div class="chip chip1">🍬 Dragées Royales</div>
+    <div class="chip chip2">💌 Faire-Part</div>
+    <div class="chip chip3">✨ Sur mesure</div>
+  </div>
+</section>
 
-  <!-- BOUTIQUE -->
-  <section id="boutique" class="boutique">
-    <div class="section-header">
-      <p class="section-label">✦ Notre Collection</p>
-      <h2 class="section-title">La Boutique</h2>
-      <p class="section-desc">Chaque création est unique, pensée pour vous et pour vos proches.</p>
+<!-- ══ BOUTIQUE ══ -->
+<section id="boutique" style="background:var(--blanc)">
+  <div class="sec-head reveal">
+    <span class="sec-lbl">Notre boutique</span>
+    <h2 class="sec-title">Nos <em>créations</em></h2>
+    <div class="gold-bar"></div>
+    <p class="sec-desc" style="margin-top:16px">Des cadeaux et souvenirs élégants pour chaque occasion, tous personnalisables à vos couleurs.</p>
+  </div>
+  <div class="filters reveal">
+    <button class="fbtn on" data-f="all">Tout</button>
+    <button class="fbtn" data-f="mariage"><i class="ti ti-rings-wedding"></i> Mariage</button>
+    <button class="fbtn" data-f="bapteme"><i class="ti ti-baby-carriage"></i> Baptême</button>
+    <button class="fbtn" data-f="anniversaire"><i class="ti ti-cake"></i> Anniversaire</button>
+    <button class="fbtn" data-f="fiancailles"><i class="ti ti-diamond"></i> Fiançailles</button>
+    <button class="fbtn" data-f="tous"><i class="ti ti-confetti"></i> Tous événements</button>
+  </div>
+  <div class="pgrid">
+    <div class="pc reveal" data-cat="mariage fiancailles">
+      <div class="pc-img r"><span>🎀</span><span class="pc-etag">Mariage</span></div>
+      <div class="pc-body"><h3>Dragées & Contenants</h3><p>Dragées élégantes et contenants personnalisés aux couleurs de votre mariage.</p>
+      <div class="pc-foot"><span class="pc-tag">Mariage · Fiançailles</span><button class="btn btn-ghost btn-sm" onclick="scrollTo('#devis')">Devis →</button></div></div>
+    </div>
+    <div class="pc reveal" data-cat="mariage">
+      <div class="pc-img o"><span>💌</span><span class="pc-etag">Mariage</span></div>
+      <div class="pc-body"><h3>Faire-Part Mariage</h3><p>Faire-part uniques et raffinés pour annoncer votre grand jour avec élégance.</p>
+      <div class="pc-foot"><span class="pc-tag">Mariage</span><button class="btn btn-ghost btn-sm" onclick="scrollTo('#devis')">Devis →</button></div></div>
+    </div>
+    <div class="pc reveal" data-cat="mariage fiancailles anniversaire tous">
+      <div class="pc-img n"><span>🎀</span><span class="pc-etag">Tous événements</span></div>
+      <div class="pc-body"><h3>Rubans & Étiquettes</h3><p>Rubans satin et étiquettes personnalisées aux couleurs de votre événement.</p>
+      <div class="pc-foot"><span class="pc-tag">Tous événements</span><button class="btn btn-ghost btn-sm" onclick="scrollTo('#devis')">Devis →</button></div></div>
+    </div>
+    <div class="pc reveal" data-cat="mariage bapteme">
+      <div class="pc-img g"><span>🌿</span><span class="pc-etag">Baptême</span></div>
+      <div class="pc-body"><h3>Kit Henné</h3><p>Kit henné complet pour la soirée traditionnelle, personnalisé et raffiné.</p>
+      <div class="pc-foot"><span class="pc-tag">Mariage · Baptême</span><button class="btn btn-ghost btn-sm" onclick="scrollTo('#devis')">Devis →</button></div></div>
+    </div>
+    <div class="pc reveal" data-cat="mariage fiancailles anniversaire tous">
+      <div class="pc-img m"><span>✨</span><span class="pc-etag">Tous événements</span></div>
+      <div class="pc-body"><h3>Spray Parfumé</h3><p>Sprays parfumés personnalisés — cadeaux raffinés pour vos invités.</p>
+      <div class="pc-foot"><span class="pc-tag">Cadeau invité</span><button class="btn btn-ghost btn-sm" onclick="scrollTo('#devis')">Devis →</button></div></div>
+    </div>
+    <div class="pc reveal" data-cat="bapteme anniversaire">
+      <div class="pc-img b"><span>🍬</span><span class="pc-etag">Baptême</span></div>
+      <div class="pc-body"><h3>Sachet Naissance</h3><p>Sachet de dragées personnalisé avec prénom, date et message de vœux.</p>
+      <div class="pc-foot"><span class="pc-tag">Naissance · Baptême</span><button class="btn btn-ghost btn-sm" onclick="scrollTo('#devis')">Devis →</button></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BANNER SUR MESURE ══ -->
+<div class="banner-wrap">
+  <div class="banner reveal">
+    <div>
+      <p class="banner-lbl">✦ Commande personnalisée</p>
+      <h2>Vous avez une idée <em>particulière ?</em></h2>
+      <p>Chaque commande est entièrement personnalisée — couleurs, prénoms, messages, quantités.</p>
+    </div>
+    <div class="banner-cta">
+      <button class="btn btn-gold" onclick="scrollTo('#devis')"><span>Commande sur mesure →</span></button>
+      <span class="banner-note">Devis gratuit · 24h</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DRAGÉES ══ -->
+<section id="dragees">
+  <div class="sec-head reveal">
+    <span class="sec-lbl">Notre gamme</span>
+    <h2 class="sec-title">Dragées & <em>Confiseries</em></h2>
+    <div class="gold-bar"></div>
+    <p class="sec-desc" style="margin-top:16px">Toute notre gamme avec palettes de couleurs complètes. Cliquez sur une catégorie pour la détailler.</p>
+  </div>
+  <div class="dragcat">
+
+    <div class="dcat open reveal">
+      <div class="dcat-head">
+        <div class="dcat-icon"><i class="ti ti-circle-dot"></i></div>
+        <div class="dcat-info"><h4>Dragées Royales</h4><span>Amande douce enrobée — finition lisse et nacrée</span></div>
+        <span class="dcat-badge">Royales</span>
+        <div class="dcat-toggle"><i class="ti ti-chevron-down"></i></div>
+      </div>
+      <div class="dcat-body">
+        <div class="type-badges"><span class="tbadge">✦ Amande Royale</span></div>
+        <span class="sw-lbl">Couleurs disponibles</span>
+        <div class="swatches">
+          <div class="sw"><div class="sw-dot" style="background:#f8f5f0;border-color:#e0d8cc"></div><span class="sw-name">Blanc</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#e8dcc0"></div><span class="sw-name">Beige</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#f5c8d4"></div><span class="sw-name">Rose bébé</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#b8d8f0"></div><span class="sw-name">Bleu bébé</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#cc2222"></div><span class="sw-name">Rouge</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#6b1a2a"></div><span class="sw-name">Bordeaux</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#8ecf5a"></div><span class="sw-name">Vert anis</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#e8408a"></div><span class="sw-name">Fuchsia</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#c8a8d8"></div><span class="sw-name">Parme</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#7c3ea0"></div><span class="sw-name">Violet</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#40c8cc"></div><span class="sw-name">Turquoise</span></div>
+          <div class="sw"><div class="sw-dot mix"><div style="background:#f8f5f0"></div><div style="background:#f5c8d4"></div><div style="background:#b8d8f0"></div><div style="background:#f8f5f0"></div></div><span class="sw-name">Mélange</span></div>
+        </div>
+      </div>
     </div>
 
-        <!-- Filtres -->
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">Tout</button>
-      <button class="filter-btn" data-filter="mariage">💍 Mariage</button>
-      <button class="filter-btn" data-filter="naissance">👶 Naissance & Baptême</button>
-      <button class="filter-btn" data-filter="anniversaire">🎂 Anniversaire</button>
-      <button class="filter-btn" data-filter="fiancailles">💑 Fiançailles</button>
-      <button class="filter-btn" data-filter="beaute">💆 Beauté & Bien-être</button>
-      <button class="filter-btn" data-filter="general">🌸 Tous Événements</button>
+    <div class="dcat reveal">
+      <div class="dcat-head">
+        <div class="dcat-icon"><i class="ti ti-circle-dot"></i></div>
+        <div class="dcat-info"><h4>Dragées Avola</h4><span>Amande d'Avola, haut de gamme</span></div>
+        <span class="dcat-badge">Avola</span>
+        <div class="dcat-toggle"><i class="ti ti-chevron-down"></i></div>
+      </div>
+      <div class="dcat-body">
+        <div class="type-badges"><span class="tbadge">✦ Amande Avola</span></div>
+        <span class="sw-lbl">Couleurs disponibles</span>
+        <div class="swatches">
+          <div class="sw"><div class="sw-dot" style="background:#f8f5f0;border-color:#e0d8cc"></div><span class="sw-name">Blanc</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#e8dcc0"></div><span class="sw-name">Beige</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#f5c8d4"></div><span class="sw-name">Rose bébé</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#b8d8f0"></div><span class="sw-name">Bleu bébé</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#cc2222"></div><span class="sw-name">Rouge</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#6b1a2a"></div><span class="sw-name">Bordeaux</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#8ecf5a"></div><span class="sw-name">Vert anis</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#e8408a"></div><span class="sw-name">Fuchsia</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#c8a8d8"></div><span class="sw-name">Parme</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#7c3ea0"></div><span class="sw-name">Violet</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#40c8cc"></div><span class="sw-name">Turquoise</span></div>
+          <div class="sw"><div class="sw-dot mix"><div style="background:#f8f5f0"></div><div style="background:#f5c8d4"></div><div style="background:#b8d8f0"></div><div style="background:#f8f5f0"></div></div><span class="sw-name">Mélange</span></div>
+        </div>
+      </div>
     </div>
 
-    <div class="products-grid">
-
-      <!-- MARIAGE -->
-      <div class="product-card featured" data-cat="mariage">
-        <div class="product-badge">✦ Mariage</div>
-        <div class="product-img"><div class="product-emoji">🍬</div></div>
-        <div class="product-info">
-          <h3>Dragées & Contenants</h3>
-          <p>Dragées élégantes et contenants personnalisés aux couleurs de votre mariage.</p>
+    <div class="dcat reveal">
+      <div class="dcat-head">
+        <div class="dcat-icon"><i class="ti ti-circle"></i></div>
+        <div class="dcat-info"><h4>Dragées au Chocolat</h4><span>Enrobage lisse et brillant</span></div>
+        <span class="dcat-badge">Chocolat</span>
+        <div class="dcat-toggle"><i class="ti ti-chevron-down"></i></div>
+      </div>
+      <div class="dcat-body">
+        <span class="sw-lbl">Couleurs disponibles</span>
+        <div class="swatches">
+          <div class="sw"><div class="sw-dot mix"><div style="background:#f8f5f0"></div><div style="background:#f5c8d4"></div><div style="background:#b8d8f0"></div><div style="background:#f8f5f0"></div></div><span class="sw-name">Mélange</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#f8f5f0;border-color:#e0d8cc"></div><span class="sw-name">Blanc</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#b8d8f0"></div><span class="sw-name">Bleu bébé</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#f5c8d4"></div><span class="sw-name">Rose bébé</span></div>
+          <div class="sw"><div class="sw-dot" style="background:linear-gradient(135deg,#fff0a0,#d4a820)"></div><span class="sw-name">Doré</span></div>
+          <div class="sw"><div class="sw-dot" style="background:linear-gradient(135deg,#f0f2f4,#c0c8d0)"></div><span class="sw-name">Argenté</span></div>
         </div>
       </div>
-
-      <div class="product-card" data-cat="mariage">
-        <div class="product-img"><div class="product-emoji">💌</div></div>
-        <div class="product-info">
-          <h3>Faire-Part Mariage</h3>
-          <p>Faire-part uniques et raffinés pour annoncer votre grand jour.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="mariage">
-        <div class="product-img"><div class="product-emoji">🎗️</div></div>
-        <div class="product-info">
-          <h3>Rubans & Étiquettes</h3>
-          <p>Rubans satin et étiquettes personnalisés aux prénoms des mariés.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="mariage">
-        <div class="product-img"><div class="product-emoji">🌿</div></div>
-        <div class="product-info">
-          <h3>Kit Henné</h3>
-          <p>Kit henné complet pour la soirée traditionnelle, personnalisé et élégant.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="mariage">
-        <div class="product-img"><div class="product-emoji">💍</div></div>
-        <div class="product-info">
-          <h3>Plateaux Alliances</h3>
-          <p>Plateaux décoratifs luxueux pour la cérémonie des alliances.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="mariage">
-        <div class="product-img"><div class="product-emoji">🪞</div></div>
-        <div class="product-info">
-          <h3>Portes Alliances Personnalisés</h3>
-          <p>Portes alliances uniques gravés aux prénoms et à la date du mariage.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="mariage">
-        <div class="product-img"><div class="product-emoji">🕯️</div></div>
-        <div class="product-info">
-          <h3>Bougies Parfumées</h3>
-          <p>Bougies parfumées personnalisées avec les prénoms et la date du mariage.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="mariage">
-        <div class="product-img"><div class="product-emoji">🍫</div></div>
-        <div class="product-info">
-          <h3>Chocolats</h3>
-          <p>Ferrero Rocher · Raffaello · M&Ms · Kinder · Lindor · Petits cœurs</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="mariage">
-        <div class="product-img"><div class="product-emoji">📦</div></div>
-        <div class="product-info">
-          <h3>Boîtes Cadeaux Mariage</h3>
-          <p>Boîtes luxueuses personnalisées pour offrir vos cadeaux de mariage.</p>
-        </div>
-      </div>
-
-      <!-- NAISSANCE & BAPTÊME -->
-      <div class="product-card featured" data-cat="naissance">
-        <div class="product-badge">✦ Naissance</div>
-        <div class="product-img"><div class="product-emoji">🍬</div></div>
-        <div class="product-info">
-          <h3>Dragées & Contenants</h3>
-          <p>Dragées tendres et contenants personnalisés pour célébrer l'arrivée de bébé.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="naissance">
-        <div class="product-img"><div class="product-emoji">💌</div></div>
-        <div class="product-info">
-          <h3>Faire-Part Naissance</h3>
-          <p>Faire-part doux et poétiques pour annoncer l'arrivée de votre bébé.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="naissance">
-        <div class="product-img"><div class="product-emoji">🏷️</div></div>
-        <div class="product-info">
-          <h3>Étiquettes Personnalisées</h3>
-          <p>Étiquettes au prénom de bébé pour personnaliser tous vos cadeaux.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="naissance">
-        <div class="product-img"><div class="product-emoji">🎁</div></div>
-        <div class="product-info">
-          <h3>Coffret Bébé</h3>
-          <p>Coffret cadeau complet et personnalisé pour accueillir le nouveau-né.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="naissance">
-        <div class="product-img"><div class="product-emoji">📦</div></div>
-        <div class="product-info">
-          <h3>Boîtes Cadeaux Pastels</h3>
-          <p>Boîtes délicates aux tons pastels, personnalisées pour la naissance.</p>
-        </div>
-      </div>
-
-      <!-- ANNIVERSAIRE -->
-      <div class="product-card featured" data-cat="anniversaire">
-        <div class="product-badge">✦ Anniversaire</div>
-        <div class="product-img"><div class="product-emoji">🎂</div></div>
-        <div class="product-info">
-          <h3>Boîtes à Gâteaux</h3>
-          <p>Boîtes élégantes personnalisées pour vos pâtisseries et douceurs.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="anniversaire">
-        <div class="product-img"><div class="product-emoji">🍫</div></div>
-        <div class="product-info">
-          <h3>Chocolats & Gourmandises</h3>
-          <p>Ferrero Rocher · Raffaello · M&Ms · Kinder · Lindor · Petits cœurs</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="anniversaire">
-        <div class="product-img"><div class="product-emoji">🎁</div></div>
-        <div class="product-info">
-          <h3>Coffret Anniversaire</h3>
-          <p>Coffret cadeau sur mesure pour célébrer chaque anniversaire avec élégance.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="anniversaire">
-        <div class="product-img"><div class="product-emoji">🎗️</div></div>
-        <div class="product-info">
-          <h3>Étiquettes & Rubans</h3>
-          <p>Étiquettes et rubans personnalisés pour sublimer vos cadeaux d'anniversaire.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="anniversaire">
-        <div class="product-img"><div class="product-emoji">🕯️</div></div>
-        <div class="product-info">
-          <h3>Bougies</h3>
-          <p>Bougies parfumées personnalisées pour créer une ambiance unique.</p>
-        </div>
-      </div>
-
-      <!-- FIANÇAILLES -->
-      <div class="product-card featured" data-cat="fiancailles">
-        <div class="product-badge">✦ Fiançailles</div>
-        <div class="product-img"><div class="product-emoji">💝</div></div>
-        <div class="product-info">
-          <h3>Coffret Romantique</h3>
-          <p>Coffret cadeau romantique et personnalisé pour célébrer les fiançailles.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="fiancailles">
-        <div class="product-img"><div class="product-emoji">🍫</div></div>
-        <div class="product-info">
-          <h3>Chocolats</h3>
-          <p>Ferrero Rocher · Raffaello · Lindor · Petits cœurs au chocolat</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="fiancailles">
-        <div class="product-img"><div class="product-emoji">🕯️</div></div>
-        <div class="product-info">
-          <h3>Bougies Parfumées</h3>
-          <p>Bougies romantiques parfumées, personnalisées pour les futurs mariés.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="fiancailles">
-        <div class="product-img"><div class="product-emoji">📦</div></div>
-        <div class="product-info">
-          <h3>Boîtes Cadeaux</h3>
-          <p>Boîtes élégantes personnalisées pour vos cadeaux de fiançailles.</p>
-        </div>
-      </div>
-
-      <!-- BEAUTÉ & BIEN-ÊTRE -->
-      <div class="product-card featured" data-cat="beaute">
-        <div class="product-badge">✦ Beauté</div>
-        <div class="product-img"><div class="product-emoji">💄</div></div>
-        <div class="product-info">
-          <h3>Maquillage</h3>
-          <p>Sélection de produits beauté pour compléter vos coffrets cadeaux.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="beaute">
-        <div class="product-img"><div class="product-emoji">🌸</div></div>
-        <div class="product-info">
-          <h3>Brumes Parfumées</h3>
-          <p>Brumes délicates et enveloppantes, idéales comme cadeaux raffinés.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="beaute">
-        <div class="product-img"><div class="product-emoji">✨</div></div>
-        <div class="product-info">
-          <h3>Kit Beauté</h3>
-          <p>Kit beauté complet pour prendre soin de soi avec élégance.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="beaute">
-        <div class="product-img"><div class="product-emoji">🕯️</div></div>
-        <div class="product-info">
-          <h3>Bougies Parfumées</h3>
-          <p>Bougies d'ambiance parfumées pour créer un moment de bien-être.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="beaute">
-        <div class="product-img"><div class="product-emoji">👜</div></div>
-        <div class="product-info">
-          <h3>Trousses Personnalisées</h3>
-          <p>Trousses élégantes personnalisées à votre prénom ou message.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="beaute">
-        <div class="product-img"><div class="product-emoji">🪞</div></div>
-        <div class="product-info">
-          <h3>Miroirs</h3>
-          <p>Miroirs de poche personnalisés, parfaits comme cadeaux raffinés.</p>
-        </div>
-      </div>
-
-      <!-- TOUS ÉVÉNEMENTS -->
-      <div class="product-card featured" data-cat="general">
-        <div class="product-badge">✦ Universel</div>
-        <div class="product-img"><div class="product-emoji">🔑</div></div>
-        <div class="product-info">
-          <h3>Porte-Clés Personnalisés</h3>
-          <p>Porte-clés uniques personnalisés avec prénom ou message, pour tous les événements.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="general">
-        <div class="product-img"><div class="product-emoji">🏷️</div></div>
-        <div class="product-info">
-          <h3>Étiquettes Personnalisées</h3>
-          <p>Étiquettes sur mesure pour emballer avec élégance tous vos cadeaux.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="general">
-        <div class="product-img"><div class="product-emoji">🎗️</div></div>
-        <div class="product-info">
-          <h3>Rubans Personnalisés</h3>
-          <p>Rubans satin imprimés à votre nom pour sublimer tous vos emballages.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="general">
-        <div class="product-img"><div class="product-emoji">📦</div></div>
-        <div class="product-info">
-          <h3>Boîtes Cadeaux</h3>
-          <p>Boîtes luxueuses personnalisées adaptées à tous vos événements.</p>
-        </div>
-      </div>
-
-      <div class="product-card" data-cat="general">
-        <div class="product-img"><div class="product-emoji">🍫</div></div>
-        <div class="product-info">
-          <h3>Chocolats</h3>
-          <p>Ferrero Rocher · Raffaello · M&Ms · Kinder · Lindor · Petits cœurs</p>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <!-- À PROPOS -->
-  <section id="apropos" class="apropos">
-    <div class="apropos-inner">
-      <div class="apropos-text">
-        <p class="section-label">✦ Notre Histoire</p>
-        <h2 class="section-title">À Propos</h2>
-        <p>Mia Atelier Créations est née d'une passion pour les belles choses et le désir de rendre chaque moment inoubliable. Chaque création est fabriquée avec soin, amour et une attention particulière aux détails.</p>
-        <p>Nous croyons que chaque cadeau raconte une histoire. C'est pourquoi nous personnalisons chaque pièce selon vos envies, pour que chaque événement de votre vie soit gravé dans les mémoires.</p>
-        <div class="apropos-stats">
-<div class="stat">
-            <span class="stat-number">✦</span>
-            <span class="stat-label">Personnalisé</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">❤️</span>
-            <span class="stat-label">Avec Amour</span>
+    <div class="dcat reveal">
+      <div class="dcat-head">
+        <div class="dcat-icon"><i class="ti ti-heart"></i></div>
+        <div class="dcat-info"><h4>Petits Cœurs au Chocolat</h4><span>Couleur unique ou à préciser</span></div>
+        <span class="dcat-badge">Cœurs</span>
+        <div class="dcat-toggle"><i class="ti ti-chevron-down"></i></div>
+      </div>
+      <div class="dcat-body">
+        <p style="font-size:.8rem;color:var(--texte-d);font-weight:300;margin-bottom:16px;line-height:1.7">Disponibles en couleur unique ou selon vos préférences — à préciser lors de votre devis.</p>
+        <div class="swatches">
+          <div class="sw"><div class="sw-dot" style="background:#f08080"></div><span class="sw-name">Rouge</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#f5c8d4"></div><span class="sw-name">Rose</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#f8f5f0;border-color:#e0d8cc"></div><span class="sw-name">Blanc</span></div>
+          <div class="sw"><div class="sw-dot" style="background:linear-gradient(135deg,#fff0a0,#d4a820)"></div><span class="sw-name">Doré</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dcat reveal">
+      <div class="dcat-head">
+        <div class="dcat-icon"><i class="ti ti-sparkles"></i></div>
+        <div class="dcat-info"><h4>Perlage en Sucre</h4><span>Finition nacrée & précieuse</span></div>
+        <span class="dcat-badge">Perlage</span>
+        <div class="dcat-toggle"><i class="ti ti-chevron-down"></i></div>
+      </div>
+      <div class="dcat-body">
+        <span class="sw-lbl">Couleurs disponibles</span>
+        <div class="swatches">
+          <div class="sw"><div class="sw-dot" style="background:linear-gradient(135deg,#fff8c0,#e8c840,#a08010)"></div><span class="sw-name">Doré</span></div>
+          <div class="sw"><div class="sw-dot" style="background:linear-gradient(135deg,#f8fafc,#d0d8e4,#8898b0)"></div><span class="sw-name">Argenté</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#f0c8cc;border-color:#e0b0b4"></div><span class="sw-name">Rose poudré</span></div>
+          <div class="sw"><div class="sw-dot" style="background:#f0ede8;border-color:#d8d0c0"></div><span class="sw-name">Blanc poudré</span></div>
+        </div>
+        <p class="cat-note">✦ Finition nacrée idéale pour les contenants de prestige — mariage, fiançailles, soirées de gala.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CONFIGURATEUR DEVIS ══ -->
+<section id="devis">
+  <div class="sec-head reveal">
+    <span class="sec-lbl">Devis gratuit</span>
+    <h2 class="sec-title">Configurez votre <em>commande</em></h2>
+    <div class="gold-bar"></div>
+    <p class="sec-desc" style="margin-top:16px">Composez votre commande de A à Z, ajoutez vos photos d'inspiration et recevez votre devis sous 24h.</p>
+  </div>
+
+  <div class="cfg reveal">
+    <div class="cfg-main">
+      <div class="cfg-prog" id="cfgProg"></div>
+
+      <!-- P0 ÉVÉNEMENT -->
+      <div id="cp0" class="cpanel active">
+        <p class="step-ctr">Étape 1 / 7</p><p class="panel-t">Votre événement</p>
+        <p class="panel-s">Quel événement célébrez-vous ? Uploadez une photo d'inspiration.</p>
+        <div class="ogrid">
+          <div class="ocard" data-v="Mariage" onclick="pick1(this,0)"><div class="pz" onclick="e.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'ev-mar',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-rings-wedding ob-ico"></i><div class="ob-t">Mariage</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Fiançailles" onclick="pick1(this,0)"><div class="pz" onclick="e.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'ev-fi',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-diamond ob-ico"></i><div class="ob-t">Fiançailles</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Naissance & Baptême" onclick="pick1(this,0)"><div class="pz" onclick="e.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'ev-ba',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-baby-carriage ob-ico"></i><div class="ob-t">Naissance & Baptême</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Anniversaire" onclick="pick1(this,0)"><div class="pz" onclick="e.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'ev-an',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-cake ob-ico"></i><div class="ob-t">Anniversaire</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Circoncision" onclick="pick1(this,0)"><div class="pz" onclick="e.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'ev-ci',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-star ob-ico"></i><div class="ob-t">Circoncision</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Autre événement" onclick="pick1(this,0)"><div class="pz" onclick="e.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'ev-au',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-confetti ob-ico"></i><div class="ob-t">Autre événement</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+        </div>
+        <div class="twocol">
+          <div class="field"><label>Date de l'événement</label><input type="date" id="evDate"></div>
+          <div class="field"><label>Nombre d'invités</label><input type="number" placeholder="ex: 150" id="evGuests" min="1"></div>
+        </div>
+        <div class="navrow"><button class="btn-next" onclick="goNext(0)">Suivant →</button></div>
+      </div>
+
+      <!-- P1 DRAGÉES -->
+      <div id="cp1" class="cpanel">
+        <p class="step-ctr">Étape 2 / 7</p><p class="panel-t">Dragées & Confiseries</p>
+        <p class="panel-s">Uploadez la photo du modèle souhaité. Sélection multiple autorisée.</p>
+        <p class="multi-h">✦ Cliquez sur la carte pour sélectionner · sur la photo pour uploader</p>
+        <div class="ogrid">
+          <div class="ocard" data-v="Dragées Royales" onclick="pickN(this,1)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-ro',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-circle-dot ob-ico"></i><div class="ob-t">Dragées Royales</div><div class="ob-s">Amande douce</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Dragées Avola" onclick="pickN(this,1)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-av',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-circle-dot ob-ico"></i><div class="ob-t">Dragées Avola</div><div class="ob-s">Haut de gamme</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Dragées chocolat" onclick="pickN(this,1)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-ch',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-circle ob-ico"></i><div class="ob-t">Dragées chocolat</div><div class="ob-s">Enrobage lisse</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Petits cœurs" onclick="pickN(this,1)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-co',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-heart ob-ico"></i><div class="ob-t">Petits cœurs</div><div class="ob-s">Au chocolat</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Perlage en sucre" onclick="pickN(this,1)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-pe',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-sparkles ob-ico"></i><div class="ob-t">Perlage en sucre</div><div class="ob-s">Finition nacrée</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+        </div>
+        <div class="spanel">
+          <div class="sp-t">Couleur(s) souhaitée(s)</div>
+          <div class="pills"><span class="pill" onclick="tog(this,'dc')">Blanc</span><span class="pill" onclick="tog(this,'dc')">Beige</span><span class="pill" onclick="tog(this,'dc')">Rose bébé</span><span class="pill" onclick="tog(this,'dc')">Bleu bébé</span><span class="pill" onclick="tog(this,'dc')">Rouge</span><span class="pill" onclick="tog(this,'dc')">Bordeaux</span><span class="pill" onclick="tog(this,'dc')">Vert anis</span><span class="pill" onclick="tog(this,'dc')">Fuchsia</span><span class="pill" onclick="tog(this,'dc')">Parme</span><span class="pill" onclick="tog(this,'dc')">Violet</span><span class="pill" onclick="tog(this,'dc')">Turquoise</span><span class="pill" onclick="tog(this,'dc')">Doré</span><span class="pill" onclick="tog(this,'dc')">Argenté</span><span class="pill" onclick="tog(this,'dc')">Mélange</span></div>
+          <div class="sp-t">Quantité (boîtes)</div>
+          <div class="qty-row">
+            <div class="stepper"><button onclick="stepQ('dq',-1)" type="button">−</button><input type="number" id="dq" value="10" min="1"><button onclick="stepQ('dq',1)" type="button">+</button></div>
+            <span style="font-size:.72rem;color:var(--texte-d)">boîtes</span>
+            <select id="dpoids" style="padding:5px 9px;border:1px solid rgba(201,168,76,.2);border-radius:var(--r);font-family:var(--fb);font-size:.72rem;color:var(--texte);background:var(--creme);outline:none"><option>250g / boîte</option><option>500g / boîte</option><option>1kg / boîte</option></select>
           </div>
         </div>
+        <div class="navrow"><button class="btn-prev" onclick="goPrev(1)">← Retour</button><button class="btn-next" onclick="goNext(1)">Suivant →</button></div>
       </div>
-      <div class="apropos-deco">
-        <div class="apropos-card">
-          <p class="apropos-quote">"Chaque détail compte, chaque création est unique."</p>
-          <p class="apropos-author">— Mia Atelier Créations</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="section-header">
-      <p class="section-label">✦ Parlons de Votre Projet</p>
-      <h2 class="section-title">Contactez-Nous</h2>
-      <p class="section-desc">Chaque commande est unique. Décrivez votre vision, nous la réalisons.</p>
-    </div>
-    <div class="contact-inner">
-      <div class="contact-info">
-        <div class="contact-item">
-          <span class="contact-icon">📱</span>
-          <div>
-            <p class="contact-label">Instagram</p>
-            <p class="contact-value">@Mia_creations</p>
-          </div>
+      <!-- P2 CONTENANTS -->
+      <div id="cp2" class="cpanel">
+        <p class="step-ctr">Étape 3 / 7</p><p class="panel-t">Contenants</p>
+        <p class="panel-s">Comment souhaitez-vous présenter vos dragées ?</p>
+        <div class="ogrid">
+          <div class="ocard" data-v="Boîte personnalisée" onclick="pickN(this,2)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'c-b',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-package ob-ico"></i><div class="ob-t">Boîte personnalisée</div><div class="ob-s">Carton, couleur au choix</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Sachet tulle" onclick="pickN(this,2)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'c-t',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-droplet ob-ico"></i><div class="ob-t">Sachet tulle</div><div class="ob-s">Noué avec ruban</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Organza" onclick="pickN(this,2)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'c-o',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-droplet-half-2 ob-ico"></i><div class="ob-t">Organza</div><div class="ob-s">Tissu délicat</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Coupe en verre" onclick="pickN(this,2)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'c-v',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-glass ob-ico"></i><div class="ob-t">Coupe en verre</div><div class="ob-s">Élégante, réutilisable</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Bocal décoratif" onclick="pickN(this,2)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'c-bo',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-bottle ob-ico"></i><div class="ob-t">Bocal décoratif</div><div class="ob-s">Vintage ou moderne</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Cône papier" onclick="pickN(this,2)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'c-co',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-cone ob-ico"></i><div class="ob-t">Cône papier</div><div class="ob-s">Romantique & champêtre</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Mini pot végétal" onclick="pickN(this,2)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'c-p',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-plant ob-ico"></i><div class="ob-t">Mini pot végétal</div><div class="ob-s">Souvenir vivant</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Sur mesure" onclick="pickN(this,2)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre idée</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'c-s',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-sparkles ob-ico"></i><div class="ob-t">Sur mesure</div><div class="ob-s">Votre idée</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
         </div>
-        <div class="contact-item">
-          <span class="contact-icon">✉️</span>
-          <div>
-            <p class="contact-label">Email</p>
-            <p class="contact-value">mia.creations13@gmail.com</p>
-          </div>
+        <div class="spanel">
+          <div class="sp-t">Couleur & finition</div>
+          <div class="pills"><span class="pill" onclick="tog(this,'cc')">Blanc</span><span class="pill" onclick="tog(this,'cc')">Ivoire</span><span class="pill" onclick="tog(this,'cc')">Rose poudré</span><span class="pill" onclick="tog(this,'cc')">Bleu ciel</span><span class="pill" onclick="tog(this,'cc')">Doré</span><span class="pill" onclick="tog(this,'cc')">Argenté</span><span class="pill" onclick="tog(this,'cc')">Nude</span><span class="pill" onclick="tog(this,'cc')">Aux couleurs de l'événement</span></div>
         </div>
-        <div class="contact-item">
-          <span class="contact-icon">🕐</span>
-          <div>
-            <p class="contact-label">Délai de réponse</p>
-            <p class="contact-value">Sous 24h</p>
-          </div>
-        </div>
+        <div class="navrow"><button class="btn-prev" onclick="goPrev(2)">← Retour</button><button class="btn-next" onclick="goNext(2)">Suivant →</button></div>
       </div>
-      <form class="contact-form" id="contactForm">
-        <div class="form-group">
-          <input type="text" placeholder="Votre prénom" required />
+
+      <!-- P3 DÉCORATION -->
+      <div id="cp3" class="cpanel">
+        <p class="step-ctr">Étape 4 / 7</p><p class="panel-t">Décoration de table</p>
+        <p class="panel-s">Uploadez vos photos d'inspiration pour chaque décoration souhaitée.</p>
+        <div class="ogrid">
+          <div class="ocard" data-v="Rubans & nœuds" onclick="pickN(this,3)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-ru',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-ribbon ob-ico"></i><div class="ob-t">Rubans & nœuds</div><div class="ob-s">Satin, organza, dentelle</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Étiquettes" onclick="pickN(this,3)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-et',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-tag ob-ico"></i><div class="ob-t">Étiquettes</div><div class="ob-s">Nom, date, message</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Fleurs séchées" onclick="pickN(this,3)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-fl',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-flower ob-ico"></i><div class="ob-t">Fleurs séchées</div><div class="ob-s">Décoration naturelle</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Bougies décoratives" onclick="pickN(this,3)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-bo',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-candle ob-ico"></i><div class="ob-t">Bougies décoratives</div><div class="ob-s">Personnalisables</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Spray parfumé" onclick="pickN(this,3)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-sp',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-spray ob-ico"></i><div class="ob-t">Spray parfumé</div><div class="ob-s">Cadeau invité</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Marque-places" onclick="pickN(this,3)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-mp',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-id-badge ob-ico"></i><div class="ob-t">Marque-places</div><div class="ob-s">Prénom des invités</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Centres de table" onclick="pickN(this,3)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-ct',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-garden-cart ob-ico"></i><div class="ob-t">Centres de table</div><div class="ob-s">Floral ou décoratif</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Composition florale" onclick="pickN(this,3)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Inspiration</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'d-cf',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-rosette ob-ico"></i><div class="ob-t">Composition florale</div><div class="ob-s">Bouquet dragées</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
         </div>
-        <div class="form-group">
-          <input type="email" placeholder="Votre email" required />
+        <div class="spanel">
+          <div class="sp-t">Texte pour étiquettes (si sélectionnées)</div>
+          <input type="text" id="labelDetail" placeholder="ex: Yasmine & Karim • 12 Juin 2026" style="width:100%;padding:8px 12px;border:1px solid rgba(201,168,76,.2);border-radius:var(--r);font-family:var(--fb);font-size:.82rem;color:var(--texte);background:var(--blanc);outline:none">
         </div>
-        <div class="form-group">
-          <select>
-            <option value="" disabled selected>Type d'événement</option>
-            <option>Mariage</option>
-            <option>Fiançailles</option>
-            <option>Naissance / Baptême</option>
-            <option>Anniversaire</option>
-            <option>Autre événement</option>
-          </select>
+        <div class="navrow"><button class="btn-prev" onclick="goPrev(3)">← Retour</button><button class="btn-next" onclick="goNext(3)">Suivant →</button></div>
+      </div>
+
+      <!-- P4 FAIRE-PART -->
+      <div id="cp4" class="cpanel">
+        <p class="step-ctr">Étape 5 / 7</p><p class="panel-t">Faire-part & Papeterie</p>
+        <p class="panel-s">Uploadez un modèle ou une photo d'inspiration pour chaque élément.</p>
+        <div class="ogrid">
+          <div class="ocard" data-v="Faire-part mariage" onclick="pickN(this,4)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'f-m',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-mail ob-ico"></i><div class="ob-t">Faire-part mariage</div><div class="ob-s">Classique ou moderne</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Faire-part baptême" onclick="pickN(this,4)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'f-b',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-mail ob-ico"></i><div class="ob-t">Faire-part baptême</div><div class="ob-s">Doux & délicat</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Carton invitation" onclick="pickN(this,4)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'f-c',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-file-text ob-ico"></i><div class="ob-t">Carton d'invitation</div><div class="ob-s">Anniversaire & autre</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Menu personnalisé" onclick="pickN(this,4)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'f-me',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-clipboard-list ob-ico"></i><div class="ob-t">Menu personnalisé</div><div class="ob-s">À poser sur table</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Save the date" onclick="pickN(this,4)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'f-s',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-calendar-event ob-ico"></i><div class="ob-t">Save the date</div><div class="ob-s">Annonce anticipée</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          <div class="ocard" data-v="Livre d'or" onclick="pickN(this,4)"><div class="pz" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Votre modèle</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'f-l',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-book ob-ico"></i><div class="ob-t">Livre d'or</div><div class="ob-s">Souvenirs des invités</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
         </div>
-        <div class="form-group">
-          <textarea placeholder="Décrivez votre projet..." rows="4"></textarea>
+        <div class="spanel">
+          <div class="sp-t">Style souhaité</div>
+          <div class="pills"><span class="pill" onclick="tog(this,'fp')">Classique & élégant</span><span class="pill" onclick="tog(this,'fp')">Moderne & épuré</span><span class="pill" onclick="tog(this,'fp')">Romantique</span><span class="pill" onclick="tog(this,'fp')">Bohème</span><span class="pill" onclick="tog(this,'fp')">Oriental</span><span class="pill" onclick="tog(this,'fp')">Doré & luxe</span><span class="pill" onclick="tog(this,'fp')">Floral</span></div>
         </div>
-        <button type="submit" class="btn-primary">Envoyer ma Demande ✦</button>
-        <a href="https://wa.me/33613171411" target="_blank" class="btn-whatsapp">
-          <span>💬</span> Commander via WhatsApp
-        </a>
+        <div class="navrow"><button class="btn-prev" onclick="goPrev(4)">← Retour</button><button class="btn-next" onclick="goNext(4)">Suivant →</button></div>
+      </div>
+
+      <!-- P5 OPTIONS -->
+      <div id="cp5" class="cpanel">
+        <p class="step-ctr">Étape 6 / 7</p><p class="panel-t">Personnalisation & Options</p>
+        <p class="panel-s">Affinez votre commande et ajoutez vos photos d'inspiration générales.</p>
+        <div class="spanel" style="margin-top:0;margin-bottom:12px">
+          <div class="sp-t">Palette de couleurs de l'événement</div>
+          <div class="pills"><span class="pill" onclick="tog(this,'pal')">Blanc & or</span><span class="pill" onclick="tog(this,'pal')">Rose & doré</span><span class="pill" onclick="tog(this,'pal')">Bleu & blanc</span><span class="pill" onclick="tog(this,'pal')">Mauve & argent</span><span class="pill" onclick="tog(this,'pal')">Vert & or</span><span class="pill" onclick="tog(this,'pal')">Rouge & or</span><span class="pill" onclick="tog(this,'pal')">Nude & champagne</span><span class="pill" onclick="tog(this,'pal')">Personnalisée</span></div>
+        </div>
+        <div class="spanel" style="margin-bottom:12px">
+          <div class="sp-t">Photos d'inspiration supplémentaires</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <div class="pz" style="width:68px;height:68px;flex-shrink:0;border:1px solid rgba(201,168,76,.2);border-radius:var(--r)"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Upload</span></div><input type="file" accept="image/*" multiple onchange="upMulti(event,'inspi')"></div>
+            <div id="inspiThumbs" style="display:flex;gap:5px;flex-wrap:wrap"></div>
+            <span style="font-size:.68rem;color:var(--texte-d);font-style:italic">Plusieurs photos acceptées</span>
+          </div>
+        </div>
+        <div class="spanel" style="margin-bottom:12px">
+          <div class="sp-t">Options supplémentaires</div>
+          <div class="ogrid" style="grid-template-columns:repeat(auto-fill,minmax(110px,1fr));margin-bottom:0">
+            <div class="ocard" data-v="Livraison" onclick="pickN(this,5)"><div class="pz" style="height:56px" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Photo</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'op-li',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-truck ob-ico"></i><div class="ob-t">Livraison</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+            <div class="ocard" data-v="Emballage cadeau" onclick="pickN(this,5)"><div class="pz" style="height:56px" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Photo</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'op-em',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-gift ob-ico"></i><div class="ob-t">Emballage cadeau</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+            <div class="ocard" data-v="Commande urgente" onclick="pickN(this,5)"><div class="pz" style="height:56px" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Photo</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'op-ur',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-clock ob-ico"></i><div class="ob-t">Commande urgente</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+            <div class="ocard" data-v="Photo personnalisée" onclick="pickN(this,5)"><div class="pz" style="height:56px" onclick="event.stopPropagation()"><div class="pz-hint"><i class="ti ti-camera-plus"></i><span>Photo</span></div><input type="file" accept="image/*" onchange="upPhoto(event,'op-ph',this.closest('.ocard'))"></div><div class="ob"><i class="ti ti-camera ob-ico"></i><div class="ob-t">Photo perso.</div></div><div class="oc-chk"><i class="ti ti-check"></i></div></div>
+          </div>
+        </div>
+        <div class="field"><label>Texte personnalisé (prénoms, date, citation…)</label><input type="text" id="customText" placeholder="ex: Yasmine & Karim • 12 Juin 2026 • ﷽"></div>
+        <div class="field"><label>Remarques ou demandes spéciales</label><textarea id="remarques" placeholder="Toute précision utile pour votre commande…"></textarea></div>
+        <div class="navrow"><button class="btn-prev" onclick="goPrev(5)">← Retour</button><button class="btn-next" onclick="goNext(5)">Suivant →</button></div>
+      </div>
+
+      <!-- P6 COORDONNÉES -->
+      <div id="cp6" class="cpanel">
+        <p class="step-ctr">Étape 7 / 7</p><p class="panel-t">Vos coordonnées</p>
+        <p class="panel-s">Pour recevoir votre devis personnalisé sous 24–48h. Aucun engagement.</p>
+        <div class="twocol">
+          <div class="field"><label>Prénom *</label><input type="text" id="cfgPrenom" placeholder="Votre prénom"></div>
+          <div class="field"><label>Nom</label><input type="text" id="cfgNom" placeholder="Votre nom"></div>
+        </div>
+        <div class="field"><label>Téléphone / WhatsApp *</label><input type="tel" id="cfgTel" placeholder="+213 ..."></div>
+        <div class="field"><label>Email</label><input type="email" id="cfgEmail" placeholder="votre@email.com"></div>
+        <div class="field"><label>Wilaya / Ville</label><input type="text" id="cfgVille" placeholder="ex: Alger, Oran, Constantine…"></div>
+        <div class="field"><label>Comment nous avez-vous trouvés ?</label>
+          <select id="cfgSource"><option value="">Sélectionner…</option><option>Instagram @Mia_creations</option><option>Bouche à oreille</option><option>Google</option><option>Recommandation d'une amie</option><option>Autre</option></select>
+        </div>
+        <div class="navrow"><button class="btn-prev" onclick="goPrev(6)">← Retour</button><button class="btn-submit" onclick="cfgSubmit()">Envoyer mon devis ✦</button></div>
+      </div>
+    </div>
+
+    <!-- Sidebar récap -->
+    <div class="cfg-side">
+      <div class="side-t">✦ Récapitulatif</div>
+      <div id="cfgRecap" style="flex:1;overflow-y:auto"><p class="rc-empty">Votre sélection apparaît ici…</p></div>
+      <div id="cfgPhotoRecap" style="display:none">
+        <div class="rc-cat">Photos jointes</div>
+        <div id="cfgThumbsRecap" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px"></div>
+      </div>
+      <div style="padding-top:12px;border-top:1px solid rgba(201,168,76,.18);font-size:.68rem;color:var(--texte-d);line-height:1.6;text-align:center;font-weight:300">
+        Devis gratuit & sans engagement<br>Réponse sous 24–48h<br>
+        <strong style="color:var(--or);font-weight:400">@Mia_creations</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ À PROPOS ══ -->
+<section id="apropos">
+  <div class="apropos-grid">
+    <div class="ap-photo reveal">
+      <div class="ap-frame"></div>
+      <div class="ap-ph"><i class="ti ti-user-circle"></i><p>Votre photo ici</p></div>
+      <div class="ap-badge"><span class="ap-badge-n">500+</span><span class="ap-badge-l">Événements</span></div>
+    </div>
+    <div class="reveal">
+      <span class="ap-tag">Mon histoire</span>
+      <h2 class="ap-h2">Créatrice passionnée<br>au service de vos <em>moments précieux</em></h2>
+      <p class="ap-p">Bienvenue dans mon atelier ! Je suis Mia, créatrice artisanale spécialisée dans la décoration d'événements sur mesure. Chaque création est pensée avec amour, du choix des matières à la dernière touche dorée.</p>
+      <p class="ap-p">Mon engagement : vous offrir des créations uniques qui reflètent votre histoire, vos couleurs, vos valeurs. Parce que chaque événement mérite d'être inoubliable.</p>
+      <div class="vals">
+        <div class="val"><i class="ti ti-heart"></i> Fait avec amour</div>
+        <div class="val"><i class="ti ti-sparkles"></i> 100% sur mesure</div>
+        <div class="val"><i class="ti ti-award"></i> Qualité premium</div>
+        <div class="val"><i class="ti ti-clock"></i> Livraison soignée</div>
+        <div class="val"><i class="ti ti-message-circle"></i> Disponible & réactive</div>
+        <div class="val"><i class="ti ti-shield-check"></i> Sans engagement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" style="background:var(--blanc)">
+  <div class="sec-head reveal">
+    <span class="sec-lbl">Nous contacter</span>
+    <h2 class="sec-title">Parlons de votre <em>projet</em></h2>
+    <div class="gold-bar"></div>
+    <p class="sec-desc" style="margin-top:16px">Une question, une idée, une commande ? Je vous réponds dans les plus brefs délais.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <h2 class="cnt-info-h">Toujours<br><em>disponible</em> pour vous</h2>
+      <p class="cnt-info-p">N'hésitez pas à nous contacter pour discuter de votre projet. Devis gratuit, réponse assurée sous 24–48h.</p>
+      <div class="cnt-item"><div class="cnt-ico"><i class="ti ti-brand-instagram"></i></div><div><span class="cnt-lbl">Instagram</span><a href="https://instagram.com/Mia_creations" class="cnt-val" target="_blank">@Mia_creations</a></div></div>
+      <div class="cnt-item"><div class="cnt-ico"><i class="ti ti-brand-whatsapp"></i></div><div><span class="cnt-lbl">WhatsApp</span><a href="https://wa.me/213000000000" class="cnt-val">+213 XXX XXX XXX</a></div></div>
+      <div class="cnt-item"><div class="cnt-ico"><i class="ti ti-mail"></i></div><div><span class="cnt-lbl">Email</span><span class="cnt-val">contact@mia-atelier.com</span></div></div>
+      <div class="cnt-item"><div class="cnt-ico"><i class="ti ti-map-pin"></i></div><div><span class="cnt-lbl">Localisation</span><span class="cnt-val">Algérie</span></div></div>
+    </div>
+    <div class="cnt-form reveal">
+      <h3>Envoyer un message</h3>
+      <form id="contactForm" onsubmit="submitContact(event)">
+        <div class="twocol">
+          <div class="fg"><input type="text" placeholder="Votre prénom" required></div>
+          <div class="fg"><input type="text" placeholder="Votre nom"></div>
+        </div>
+        <div class="fg"><input type="text" placeholder="Email ou numéro WhatsApp" required></div>
+        <div class="fg"><textarea placeholder="Décrivez votre projet ou posez votre question…"></textarea></div>
+        <button type="submit" class="btn btn-gold btn-full"><span>Envoyer ma Demande ✦</span></button>
       </form>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- CGV -->
-  <section id="cgv" class="cgv">
-    <div class="section-header">
-      <p class="section-label">✦ Informations Légales</p>
-      <h2 class="section-title">Conditions Générales de Vente</h2>
-      <p class="section-desc">Dernière mise à jour : Mai 2026</p>
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="foot-in">
+    <div class="foot-logo">Mia <span>Atelier</span></div>
+    <div class="foot-sig">✦ Créations artisanales sur mesure ✦</div>
+    <a href="https://instagram.com/Mia_creations" class="foot-insta" target="_blank"><i class="ti ti-brand-instagram"></i> Instagram : @Mia_creations</a>
+    <div class="foot-links">
+      <a href="#accueil">Accueil</a><a href="#boutique">Boutique</a><a href="#dragees">Dragées</a>
+      <a href="#devis">Devis</a><a href="#apropos">À propos</a><a href="#contact">Contact</a>
     </div>
-    <div class="cgv-inner">
+    <div class="foot-copy">© 2026 Mia Atelier — Tous droits réservés · Instagram : @Mia_creations</div>
+  </div>
+</footer>
 
-      <div class="cgv-article">
-        <h3>Article 1 — Objet</h3>
-        <p>Les présentes conditions générales de vente définissent les droits et obligations des parties dans le cadre de la vente en ligne de produits personnalisés proposés par <strong>Mia Atelier Créations</strong>, dont le siège social est situé à <strong>Marseille, France</strong>, sous le numéro SIREN : <strong>419 369 798</strong> (entreprise hébergée par la couveuse COSENS, Marseille).</p>
-        <p>Ces conditions régissent exclusivement les achats effectués par les consommateurs situés en France Métropolitaine et en Corse, concernant les produits suivants : dragées, contenants à dragées, cadeaux personnalisés, bougies, trousses, miroirs, porte-clés, maquillage, boîtes à gâteaux et à cadeaux, étiquettes, faire-part, rubans personnalisés et chocolats.</p>
-        <p>Elles sont accessibles sur le site internet : <strong>mia-atelier-creations.fr</strong> <span class="cgv-fill">[à confirmer lors de la mise en ligne]</span></p>
-        <p>L'acheteur déclare avoir pris connaissance des présentes conditions générales de vente et les avoir acceptées avant la validation de sa commande, conformément à l'article 1119 du Code civil.</p>
-      </div>
+<!-- WhatsApp flottant -->
+<a href="https://wa.me/213000000000" class="wa-btn" target="_blank" rel="noopener">
+  <i class="ti ti-brand-whatsapp"></i>
+  <span class="wa-tip">Nous contacter sur WhatsApp</span>
+</a>
 
-      <div class="cgv-article">
-        <h3>Article 2 — Informations Précontractuelles</h3>
-        <p>Préalablement à tout contrat, l'acheteur reconnaît avoir pris connaissance, de manière lisible et compréhensible, des conditions générales de vente et de toutes informations listées aux articles L111-1 et L221-5 du Code de la consommation, notamment :</p>
-        <ul>
-          <li>Les caractéristiques essentielles du bien ou du service</li>
-          <li>Le prix du bien ou du service et les frais supplémentaires (transport, livraison)</li>
-          <li>La date ou le délai de livraison</li>
-          <li>Les modalités de paiement et de livraison</li>
-          <li>L'existence du droit de rétractation et ses conditions</li>
-          <li>L'identité du professionnel et ses coordonnées</li>
-          <li>Les garanties légales et commerciales</li>
-          <li>La possibilité de recourir à un médiateur de la consommation</li>
-        </ul>
-      </div>
+<script>
+/* ── Utilitaires ── */
+function scrollTo(id){document.querySelector(id)?.scrollIntoView({behavior:'smooth'})}
+function $(id){return document.getElementById(id)}
 
-      <div class="cgv-article">
-        <h3>Article 3 — Produits</h3>
-        <p>Les produits soumis aux présentes CGV sont ceux figurant sur le site internet de <strong>Mia Atelier Créations</strong>. Ils sont proposés à la vente dans la limite des stocks disponibles. Les images représentant les produits ne sont pas contractuelles.</p>
-      </div>
+/* ── Navbar ── */
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>50),{passive:true});
 
-      <div class="cgv-article">
-        <h3>Article 4 — Commande</h3>
-        <p>L'acheteur peut passer sa commande directement via le formulaire de contact du site ou par WhatsApp au <strong>+33 6 13 17 14 11</strong>.</p>
-        <p>Le client s'engage à communiquer uniquement des informations réelles et valides. <strong>Mia Atelier Créations</strong> ne saurait être tenu responsable des informations erronées transmises par le client. Pour toute question relative à une commande, contacter Mia au <strong>+33 6 13 17 14 11</strong>, du lundi au vendredi de 10h à 18h.</p>
-      </div>
+/* ── Menu mobile ── */
+const burger=$('burger'),mob=$('mobMenu'),mobClose=$('mobClose');
+burger.addEventListener('click',()=>mob.classList.toggle('open'));
+mobClose.addEventListener('click',()=>mob.classList.remove('open'));
+mob.querySelectorAll('.mob-link').forEach(a=>a.addEventListener('click',()=>mob.classList.remove('open')));
 
-      <div class="cgv-article">
-        <h3>Article 5 — Signature Électronique</h3>
-        <p>La validation et le paiement de la commande valent signature électronique et acceptation de la vente entre les parties.</p>
-      </div>
+/* ── Filtres boutique ── */
+document.querySelectorAll('.fbtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    const f=btn.dataset.f;
+    document.querySelectorAll('.pc').forEach(c=>{
+      c.classList.toggle('hidden', f!=='all' && !c.dataset.cat.includes(f));
+    });
+  });
+});
 
-      <div class="cgv-article">
-        <h3>Article 6 — Confirmation de Commande</h3>
-        <p>Mia Atelier Créations fournit à l'acheteur les informations récapitulatives de sa commande au moyen d'une confirmation écrite par voie d'e-mail ou de message WhatsApp.</p>
-      </div>
+/* ── Accordion dragées ── */
+document.querySelectorAll('.dcat-head').forEach(h=>{
+  h.addEventListener('click',()=>h.closest('.dcat').classList.toggle('open'));
+});
 
-      <div class="cgv-article">
-        <h3>Article 7 — Prix</h3>
-        <p>Tous les prix des produits proposés à la vente sont indiqués en euros toutes taxes comprises, hors frais de livraison facturés en supplément et indiqués avant la validation de la commande.</p>
-        <p><strong>Mia Atelier Créations</strong> se réserve la faculté de modifier ses prix à tout moment, mais s'engage à appliquer les tarifs en vigueur lors de la validation de la commande. Le prix doit être payé intégralement au moment de la commande.</p>
-      </div>
+/* ── Scroll reveal ── */
+const revObs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);revObs.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 
-      <div class="cgv-article">
-        <h3>Article 8 — Règlement</h3>
-        <p>Le paiement est effectué selon les modes mis à disposition : virement bancaire, PayPal, ou tout autre moyen convenu entre les parties. Le règlement s'effectue au comptant au jour de la commande.</p>
-      </div>
+/* ── Configurateur ── */
+const STEPS=['Événement','Dragées','Contenants','Décoration','Faire-part','Options','Contact'];
+const ST={0:null,1:[],2:[],3:[],4:[],5:[],col:{dc:[],cc:[],fp:[],pal:[]}};
+const PHOTOS={};
+let cur=0;
 
-      <div class="cgv-article">
-        <h3>Article 9 — Retard de Paiement</h3>
-        <p>L'acheteur s'assure, lors de la validation de la commande, qu'il dispose des fonds suffisants. En cas de non-paiement, <strong>Mia Atelier Créations</strong> se réserve le droit de suspendre ou d'annuler la commande.</p>
-      </div>
+function buildProg(){
+  const p=$('cfgProg'); if(!p) return; p.innerHTML='';
+  STEPS.forEach((s,i)=>{
+    if(i>0){const l=document.createElement('div');l.className='ps-line';p.appendChild(l)}
+    const d=document.createElement('div');
+    d.className='ps'+(i===cur?' active':i<cur?' done':'');
+    d.innerHTML=`<div class="ps-dot">${i<cur?'✓':i+1}</div><span class="ps-lbl">${s}</span>`;
+    d.onclick=()=>{if(i<=cur){cur=i;render()}};
+    p.appendChild(d);
+  });
+}
 
-      <div class="cgv-article">
-        <h3>Article 10 — Livraison</h3>
-        <p>Les produits commandés sont livrés par voie postale en lettre suivie dans un délai de <strong>5 à 7 jours ouvrés</strong> à compter de la confirmation de commande. Pendant les périodes de congés, ce délai pourra être porté à 30 jours.</p>
-        <p>En cas de colis endommagé à la livraison, le client doit signaler toute réserve auprès du transporteur. <strong>Mia Atelier Créations</strong> ne saurait être tenu responsable des dommages survenus au cours de l'acheminement.</p>
-      </div>
+function pick1(el,step){
+  document.querySelectorAll('#cp'+step+' .ocard').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel'); ST[step]=el.dataset.v; upRecap();
+}
+function pickN(el,step){
+  el.classList.toggle('sel');
+  const v=el.dataset.v;
+  if(el.classList.contains('sel')){if(!ST[step].includes(v))ST[step].push(v)}
+  else ST[step]=ST[step].filter(x=>x!==v);
+  upRecap();
+}
+function tog(el,g){
+  el.classList.toggle('on');
+  const v=el.textContent;
+  if(!ST.col[g])ST.col[g]=[];
+  if(el.classList.contains('on')){if(!ST.col[g].includes(v))ST.col[g].push(v)}
+  else ST.col[g]=ST.col[g].filter(x=>x!==v);
+  upRecap();
+}
+function stepQ(id,d){const el=$(id);if(el){el.value=Math.max(1,(parseInt(el.value)||1)+d);upRecap()}}
 
-      <div class="cgv-article">
-        <h3>Article 11 — Retard de Livraison & Remboursement</h3>
-        <p>En cas de non-respect du délai de livraison, l'acheteur peut enjoindre le vendeur d'exécuter la livraison dans un délai supplémentaire raisonnable. À défaut, l'acheteur peut résoudre le contrat par courrier recommandé.</p>
-        <p>Lorsque le contrat est résolu, <strong>Mia Atelier Créations</strong> est tenu de rembourser la totalité des sommes versées dans les délais légaux prévus à l'article L242-4 du Code de la consommation.</p>
-      </div>
+function upPhoto(ev,key,card){
+  const file=ev.target.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    PHOTOS[key]=e.target.result;
+    const pz=card.querySelector('.pz');
+    const hint=pz.querySelector('.pz-hint');
+    let img=pz.querySelector('img');
+    if(!img){img=document.createElement('img');pz.appendChild(img)}
+    img.src=e.target.result;
+    if(hint)hint.style.opacity='0';
+    upPhotoRecap();
+  };
+  reader.readAsDataURL(file);
+}
+function upMulti(ev,key){
+  const files=Array.from(ev.target.files);
+  if(!PHOTOS[key])PHOTOS[key]=[];
+  const t=$('inspiThumbs');
+  files.forEach(f=>{
+    const r=new FileReader();
+    r.onload=e=>{
+      PHOTOS[key].push(e.target.result);
+      if(t){const img=document.createElement('img');img.src=e.target.result;img.style.cssText='width:48px;height:48px;object-fit:cover;border:1px solid rgba(201,168,76,.2);border-radius:5px';t.appendChild(img)}
+      upPhotoRecap();
+    };
+    r.readAsDataURL(f);
+  });
+}
+function upPhotoRecap(){
+  const all=Object.entries(PHOTOS).filter(([k,v])=>v&&(typeof v==='string'||(Array.isArray(v)&&v.length)));
+  const pr=$('cfgPhotoRecap'),tr=$('cfgThumbsRecap');
+  if(!pr||!tr) return;
+  if(!all.length){pr.style.display='none';return}
+  pr.style.display='block'; tr.innerHTML='';
+  all.forEach(([k,v])=>{(Array.isArray(v)?v:[v]).forEach(src=>{const img=document.createElement('img');img.src=src;img.className='rc-thumb';img.title=k;tr.appendChild(img)})});
+}
+function upRecap(){
+  const r=$('cfgRecap'); if(!r) return;
+  let h='';
+  if(ST[0]){
+    const dt=$('evDate')?.value,gu=$('evGuests')?.value;
+    h+=`<div class="rc-cat">Événement</div><div class="rc-row"><span>Type</span><span>${ST[0]}</span></div>`;
+    if(dt)h+=`<div class="rc-row"><span>Date</span><span>${dt}</span></div>`;
+    if(gu)h+=`<div class="rc-row"><span>Invités</span><span>${gu}</span></div>`;
+  }
+  if(ST[1].length){
+    h+=`<div class="rc-cat">Dragées</div><div class="rc-row"><span>Modèles</span><span>${ST[1].join(', ')}</span></div>`;
+    if(ST.col.dc?.length)h+=`<div class="rc-row"><span>Couleurs</span><span>${ST.col.dc.join(', ')}</span></div>`;
+    const dq=$('dq')?.value,dp=$('dpoids')?.value;
+    if(dq)h+=`<div class="rc-row"><span>Qté</span><span>${dq} boîtes ${dp||''}</span></div>`;
+  }
+  if(ST[2].length){h+=`<div class="rc-cat">Contenants</div><div class="rc-row"><span></span><span>${ST[2].join(', ')}</span></div>`;if(ST.col.cc?.length)h+=`<div class="rc-row"><span>Finition</span><span>${ST.col.cc.join(', ')}</span></div>`}
+  if(ST[3].length)h+=`<div class="rc-cat">Décoration</div><div class="rc-row"><span></span><span>${ST[3].join(', ')}</span></div>`;
+  if(ST[4].length){h+=`<div class="rc-cat">Faire-part</div><div class="rc-row"><span></span><span>${ST[4].join(', ')}</span></div>`;if(ST.col.fp?.length)h+=`<div class="rc-row"><span>Style</span><span>${ST.col.fp.join(', ')}</span></div>`}
+  if(ST[5].length)h+=`<div class="rc-cat">Options</div><div class="rc-row"><span></span><span>${ST[5].join(', ')}</span></div>`;
+  if(ST.col.pal?.length)h+=`<div class="rc-cat">Palette</div><div class="rc-row"><span></span><span>${ST.col.pal.join(', ')}</span></div>`;
+  const ct=$('customText')?.value;if(ct)h+=`<div class="rc-cat">Texte</div><div class="rc-row"><span></span><span>${ct}</span></div>`;
+  r.innerHTML=h||'<p class="rc-empty">Votre sélection apparaît ici…</p>';
+}
+function goNext(s){cur=s+1;render()}
+function goPrev(s){cur=s-1;render()}
+function render(){
+  document.querySelectorAll('.cpanel').forEach((p,i)=>p.classList.toggle('active',i===cur));
+  buildProg(); upRecap();
+  document.querySelector('.cfg-main')?.scrollTo(0,0);
+}
+function cfgSubmit(){
+  const pr=$('cfgPrenom')?.value.trim(),tel=$('cfgTel')?.value.trim();
+  if(!pr||!tel){alert('Merci de renseigner votre prénom et votre téléphone.');return}
+  const btn=document.querySelector('.btn-submit');
+  if(btn){btn.textContent='✦ Devis envoyé !';btn.style.background='linear-gradient(135deg,#4caf7d,#2e9c5c)';setTimeout(()=>{btn.textContent='Envoyer mon devis ✦';btn.style.background=''},3500)}
+}
+function submitContact(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.btn');const orig=btn.innerHTML;
+  btn.innerHTML='<span>✦ Message envoyé !</span>';btn.style.background='linear-gradient(135deg,#4caf7d,#2e9c5c)';
+  setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';e.target.reset()},3000);
+}
 
-      <div class="cgv-article">
-        <h3>Article 12 — Droit de Rétractation</h3>
-        <p>Conformément à l'article L221-18 du Code de la consommation, l'acheteur dispose d'un délai de <strong>14 jours</strong> pour exercer son droit de rétractation à compter de la réception du bien.</p>
-        <p>Pour exercer ce droit, le client doit notifier sa décision par email à : <strong>mia.creations13@gmail.com</strong> ou par WhatsApp au <strong>+33 6 13 17 14 11</strong>.</p>
-        <p><strong>⚠️ Exception :</strong> Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation est exclu pour les produits confectionnés selon les spécifications du consommateur ou nettement personnalisés (prénom gravé, date, couleurs spécifiques, etc.).</p>
-        <p>Les produits retournés doivent être dans leur emballage d'origine et en parfait état, dans un délai de 3 jours suivant la notification. Les frais de retour sont à la charge de l'acheteur. Le remboursement est effectué dans les 14 jours suivant la réception du retour.</p>
-      </div>
-
-      <div class="cgv-article">
-        <h3>Article 13 — Force Majeure</h3>
-        <p>La responsabilité de <strong>Mia Atelier Créations</strong> ne pourra être mise en œuvre si la non-exécution ou le retard découle d'un cas de force majeure au sens de l'article 1218 du Code civil.</p>
-      </div>
-
-      <div class="cgv-article">
-        <h3>Article 14 — Garanties</h3>
-        <p><strong>Mia Atelier Créations</strong> est tenu des défauts de conformité dans les conditions des articles L217-4 et suivants du Code de la consommation, et des défauts cachés dans les conditions des articles 1641 et suivants du Code civil.</p>
-        <p>Le consommateur bénéficie d'un délai de <strong>2 ans</strong> à compter de la délivrance du bien pour agir. Tout défaut devra être signalé par email ou WhatsApp dans un délai maximum de <strong>3 jours</strong> à compter de sa découverte.</p>
-      </div>
-
-      <div class="cgv-article">
-        <h3>Article 15 — Propriété Intellectuelle</h3>
-        <p>L'ensemble du contenu du site (photographies, images, dessins, textes, créations) reste la propriété exclusive de <strong>Mia Atelier Créations</strong> et est protégé par le droit de la propriété intellectuelle. Toute reproduction totale ou partielle est strictement interdite.</p>
-      </div>
-
-      <div class="cgv-article">
-        <h3>Article 16 — Données Personnelles</h3>
-        <p><strong>Mia Atelier Créations</strong> est responsable du traitement et de la collecte des données personnelles de l'acheteur, utilisées uniquement pour la gestion des commandes. L'acheteur dispose d'un droit d'accès, de modification et d'opposition en contactant : <strong>mia.creations13@gmail.com</strong>. En cas de litige, recours possible auprès de la CNIL.</p>
-      </div>
-
-      <div class="cgv-article">
-        <h3>Article 17 — Non-validation Partielle</h3>
-        <p>Si une stipulation des présentes CGV est tenue pour non valide, les autres stipulations garderont toute leur force et leur portée.</p>
-      </div>
-
-      <div class="cgv-article">
-        <h3>Article 18 — Loi Applicable</h3>
-        <p>Les présentes CGV sont soumises au droit français. Tous les litiges relèvent de la compétence des tribunaux judiciaires de <strong>Marseille</strong>.</p>
-      </div>
-
-      <div class="cgv-article">
-        <h3>Article 19 — Responsabilité</h3>
-        <p>Le client est responsable du bon usage des produits achetés. <strong>Mia Atelier Créations</strong> ne pourra en aucun cas être tenu responsable en cas d'accident imputable à un mauvais usage. Les produits contenant des petits éléments doivent être tenus hors de portée des enfants en bas âge.</p>
-      </div>
-
-      <div class="cgv-note">
-        <p>✦ Pour toute question relative aux présentes CGV, contactez-nous via WhatsApp au <strong>+33 6 13 17 14 11</strong> ou par Instagram <strong>@Mia_creations</strong>.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <p class="footer-logo">Mia <span>Atelier</span> Créations</p>
-      <p class="footer-sig">Instagram: @Mia_creations</p>
-      <p class="footer-links"><a href="#cgv">Conditions Générales de Vente</a></p>
-      <p class="footer-copy">© 2026 Mia Atelier Créations — Tous droits réservés</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+/* ── Init ── */
+buildProg();
+</script>
 </body>
 </html>
